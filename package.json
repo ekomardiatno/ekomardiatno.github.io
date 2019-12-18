@@ -1,0 +1,36 @@
+{
+  "name": "ekomardiatno.github.io",
+  "version": "1.0.0",
+  "description": "Static web for ekomardiatno.github.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ekomardiatno/ekomardiatno.github.io.git"
+  },
+  "keywords": [
+    "Static",
+    "web"
+  ],
+  "author": "Eko Mardiatno",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ekomardiatno/ekomardiatno.github.io/issues"
+  },
+  "homepage": "https://github.com/ekomardiatno/ekomardiatno.github.io#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.7.0",
+    "gulp-file-include": "^2.1.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "node-sass": "^4.12.0",
+    "uglify-save-license": "^0.4.1"
+  }
+}
