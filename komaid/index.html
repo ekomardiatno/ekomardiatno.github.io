@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Eko Mardiatno" />
+
+  <title>#1911190064 (komaID)</title>
+  <link rel="icon" href="./assets/images/bell.png">
+
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+  <link href="./assets/css/roboto-condensed.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/museo.css">
+  <link rel="stylesheet" href="./assets/css/animate.min.css">
+  <link rel="stylesheet" href="./assets/css/font-awesome.min.css">
+
+  <style>
+    html {
+      font-size: 15px;
+    }
+
+    body {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 1rem;
+      line-height: 1.35;
+      color: #333;
+      background-color: #f5f5f5;
+    }
+
+    .page-wrapper {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    hr {
+      margin-top: .75rem;
+      margin-bottom: .75rem;
+    }
+
+    .wrapper {
+      width: 460px;
+      max-width: 100%;
+    }
+
+    .back-top {
+      position: fixed;
+      bottom: 50px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, .35);
+      z-index: 9999;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: none;
+    }
+
+    .shadow {
+      box-shadow: 0 13px 15px -10px rgba(0, 0, 0, .2);
+    }
+
+    .current {
+      position: relative;
+      z-index: 1;
+      background-color: #ffeaa7;
+      box-shadow: 0 15px 20px -10px rgba(253, 203, 110, .8);
+    }
+
+    .form-control:focus {
+      box-shadow: none;
+    }
+
+    .letter-spacing-1 {
+      letter-spacing: 1px;
+    }
+  </style>
+
+  <script src="./assets/js/jquery.min.js"></script>
+  <script src="./assets/js/bootstrap.bundle.min.js">
+  </script>
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <div class="container py-3">
+      <div data-page="1" data-length="90" id="app" class="row"></div>
+    </div>
+  </div>
+
+  <a style="display:none" class="back-top bg-danger text-white" href="#">
+    <span class="fas fa-arrow-up"></span>
+  </a>
+
+  <script src="sample.js"></script>
+  <script src="helpers.js"></script>
+
+  <script>
+    let date = new Date()
+    let month = date.getMonth() + 1
+    let year = date.getFullYear()
+    sample = {
+      ...sample,
+      start_date_show_results: `${year}-${month}-01`
+    }
+  </script>
+
+  <script>
+    function list_view(data) {
+      const app_wrap = document.getElementById('app')
+      const page = app_wrap.getAttribute('data-page')
+      const length = app_wrap.getAttribute('data-length')
+      data = data.slice((page - 1) * length, page * length)
+      data.map(a => {
+        const col = document.createElement('div')
+        col.setAttribute('class', 'd-flex col-lg-4 col-md-6')
+        const card = document.createElement('div')
+        let date = new Date()
+        card.setAttribute('class',
+          `card mb-3 border-0 shadow flex-fill${new Date(`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`).getTime() === new Date(`${a.date.getFullYear()}-${a.date.getMonth() + 1}-${a.date.getDate()}`).getTime() ? ' current' : ''}`
+        )
+        const card_body = document.createElement('div')
+        card_body.setAttribute('class', 'card-body p-3 font-weight-bold')
+        const text = document.createElement('h6')
+        text.setAttribute('class', 'mb-2 font-weight-bold letter-spacing-1')
+        text.textContent = date_formatted(a.date)
+        const hr = document.createElement('hr')
+        card_body.appendChild(text)
+        card_body.appendChild(hr)
+        card.appendChild(card_body)
+        col.appendChild(card)
+        a.data.map(d => {
+          const content = document.createElement('div')
+          let html = ``
+          switch (d.type) {
+            case 'MINING_INCREASE':
+              html += `
+                <div class="text-primary py-1 d-flex flex-row justify-content-between">
+                  <div class="d-flex"><h4 class="text-muted m-0 font-weight-light"><span class="fal fa-hashtag mr-1"></span>Mining</h4></div>
+                  <div class="d-flex">
+                    <h6 class="m-0 text-right font-weight-medium">${mask(d.mining_total.toFixed(3))} EDC
+                      <p class="small text-muted m-0 font-weight-light">+${mask(d.edccash.toFixed(3))} EDC</p>
+                    </h6>
+                  </div>
+                </div>
+              `
+              break
+            case 'COLLECT_MINING':
+              html += `
+                <div class="text-success py-1 d-flex flex-row justify-content-between">
+                  <div class="d-flex"><p class="text-muted m-0 font-weight-light"><span class="fal fa-hashtag mr-1"></span>Pindah Mining</p></div>
+                  <div class="d-flex"><h6 class="m-0 text-right font-weight-medium">${mask(d.edccash.toFixed(3))} EDC</h6></div>
+                </div>
+              `
+              break
+            case 'MAXIMUM_WITHDRAWAL':
+              html += `
+                <div class="text-dark py-1 d-flex flex-row justify-content-between">
+                  <div class="d-flex"><p class="text-dark m-0 font-weight-light"><span class="fal fa-hashtag mr-1"></span>Maksimal withdraw</p></div>
+                  <div class="d-flex"><h6 class="m-0 text-right font-weight-bold">${Currency(d.nominal)}</h6></div>
+                </div>
+              `
+              break
+            case 'TOP_UP':
+              html += `
+                <div class="text-success py-1 d-flex flex-row justify-content-between">
+                  <div class="d-flex"><h4 class="text-muted m-0 font-weight-light"><span class="fal fa-hashtag mr-1"></span>Top-Up</h4></div>
+                  <div class="d-flex">
+                    <h6 class="m-0 text-right font-weight-medium">${Currency(d.nominal)}
+                      <p class="small text-muted m-0 font-weight-light">+${mask(d.edccash.toFixed(3))} EDC</p>
+                    </h6>
+                  </div>
+                </div>
+              `
+              break
+            case 'WITHDRAW':
+              html += `
+                <div class="text-danger py-1 d-flex flex-row justify-content-between">
+                  <div class="d-flex"><h4 class="text-muted m-0 font-weight-light"><span class="fal fa-hashtag mr-1"></span>Withdraw</h4></div>
+                  <div class="d-flex"><h6 class="m-0 text-right font-weight-medium">${Currency(d.nominal)}<p class="small text-muted m-0">-${mask(d.edccash)} EDC</p></h6></div>
+                </div>
+              `
+              break
+          }
+          content.innerHTML = html
+          card_body.appendChild(content)
+        })
+        const card_footer = document.createElement('div')
+        card_footer.setAttribute('class', 'card-footer px-3 py-2 bg-success text-white border-0')
+        card_footer.innerHTML =
+          `<h4 class="m-0 text-right font-weight-bold"><span class="small text-light font-weight-light font-italic pr-1">saldo</span>${mask(a.saldo.toFixed(3))} EDC</h4>`
+        card.appendChild(card_footer)
+        app_wrap.appendChild(col)
+      })
+    }
+  </script>
+
+  <script>
+    let app_wrap = document.getElementById('app')
+    const user_info_elm = document.createElement('div')
+    user_info_elm.setAttribute('class', 'card mb-3 border-0 shadow bg-light')
+    user_info_elm.innerHTML = `
+        <div class="card-body p-3">
+          <div class="d-flex flex-row align-items-center mx--3">
+            <div class="px-3">
+              <h1 class="fas fa-coins text-warning"></h1>
+            </div>
+            <div class="px-3">
+              <h3><span class="text-muted small font-weight-light">sejak</span>${date_formatted(new Date(sample.start_date))}</h3>
+              <p><span class="fal fa-hashtag mr-1"></span>1911190064 (komaID)</p>
+              <h4 class="mb-0 text-success font-weight-bold"><span class="text-muted small font-weight-light pr-1"><span class="fal fa-hashtag mr-1"></span>deposit</span>${
+                Currency(
+                  5000000 +
+                  sample.top_up.map(function (a) {
+                    return a.nominal
+                  }).reduce((a, b) => {
+                    return a + b
+                  })
+                )
+              }</h4>
+            </div>
+          </h1>
+        </div>
+    `
+    app_wrap.parentNode.prepend(user_info_elm)
+    const results = simulated(sample)
+    list_view(results)
+  </script>
+
+  <script>
+    $(document).ready(function () {
+      var offset = window.innerHeight / 2,
+        duration = 800
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > offset) {
+          $('.back-top').fadeIn(duration)
+        } else {
+          $('.back-top').fadeOut(duration)
+        }
+
+        if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+          const app_wrap = document.getElementById('app')
+          const page = app_wrap.getAttribute('data-page')
+          app_wrap.setAttribute('data-page', parseInt(page) + 1)
+          const results = simulated(sample)
+          list_view(results)
+        }
+
+      })
+
+      $('.back-top').click(function (event) {
+        event.preventDefault()
+        $('html, body').animate({
+          scrollTop: 0
+        }, duration)
+        return false
+      })
+
+      let current = $('.card.current')
+      if (current.length) {
+        $(window).on('load', function () {
+          let offsetTop = current.offset().top
+          let height = current.height()
+          $('html, body').animate({
+            scrollTop: offsetTop - height - 30
+          }, 1000)
+          current.addClass('animated pulse slower delay-1s infinite')
+        })
+      }
+    })
+  </script>
+
+</body>
+
+</html>
