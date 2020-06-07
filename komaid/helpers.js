@@ -140,6 +140,9 @@ function simulated(sample) {
       end: a.periods_end
     }
   })
+  let skipped_withdrawal = sample.skipped_withdrawal.map(a => {
+    return new Date(a).getTime()
+  })
   for (let i = 1; i <= range; i++) {
     let progress = {}
     progress.data = []
@@ -251,7 +254,7 @@ function simulated(sample) {
       next_monthly_withdrawal_date_m = next_monthly_withdrawal_date_m.length < 2
         ? '0' + next_monthly_withdrawal_date_m
         : next_monthly_withdrawal_date_m
-        next_monthly_withdrawal_date_d = next_monthly_withdrawal_date_d.length < 2
+      next_monthly_withdrawal_date_d = next_monthly_withdrawal_date_d.length < 2
         ? '0' + next_monthly_withdrawal_date_d
         : next_monthly_withdrawal_date_d
       let monthly_periods_add = monthly_withdrawal[monthly_withdrawal_index].periods_add + 1
@@ -293,7 +296,7 @@ function simulated(sample) {
       next_yearly_withdrawal_date_m = next_yearly_withdrawal_date_m.length < 2
         ? '0' + next_yearly_withdrawal_date_m
         : next_yearly_withdrawal_date_m
-        next_yearly_withdrawal_date_d = next_yearly_withdrawal_date_d.length < 2
+      next_yearly_withdrawal_date_d = next_yearly_withdrawal_date_d.length < 2
         ? '0' + next_yearly_withdrawal_date_d
         : next_yearly_withdrawal_date_d
       let yearly_periods_add = yearly_withdrawal[yearly_withdrawal_index].periods_add + 1
@@ -320,25 +323,27 @@ function simulated(sample) {
     }
 
 
-    if (withdrawals > 0) {
-      let withdraw_nominal = 0
-      if (withdrawals >= 100000000) {
-        withdraw_nominal = 100000000
-        withdrawals -= 100000000
-      } else {
-        withdraw_nominal = withdrawals
-        withdrawals -= withdrawals
+    if (skipped_withdrawal.indexOf(current_date.getTime()) < 0) {
+      if (withdrawals > 0) {
+        let withdraw_nominal = 0
+        if (withdrawals >= 100000000) {
+          withdraw_nominal = 100000000
+          withdrawals -= 100000000
+        } else {
+          withdraw_nominal = withdrawals
+          withdrawals -= withdrawals
+        }
+        let fee = parseFloat(((withdraw_nominal / selling_price) * (selling_fee / 100)).toFixed(3))
+        let edccash = parseFloat((withdraw_nominal / selling_price).toFixed(3)) + fee
+        saldo = saldo - edccash
+        progress.data.push({
+          type: 'WITHDRAW',
+          fee: fee,
+          nominal: withdraw_nominal,
+          edccash: parseFloat(edccash.toFixed(3))
+        })
+        saldo = parseFloat(saldo.toFixed(3))
       }
-      let fee = parseFloat(((withdraw_nominal / selling_price) * (selling_fee / 100)).toFixed(3))
-      let edccash = parseFloat((withdraw_nominal / selling_price).toFixed(3)) + fee
-      saldo = saldo - edccash
-      progress.data.push({
-        type: 'WITHDRAW',
-        fee: fee,
-        nominal: withdraw_nominal,
-        edccash: parseFloat(edccash.toFixed(3))
-      })
-      saldo = parseFloat(saldo.toFixed(3))
     }
 
     if (progress.data.length > 0 && i >= start_show_results_index) {

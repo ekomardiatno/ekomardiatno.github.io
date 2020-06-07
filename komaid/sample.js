@@ -44,7 +44,7 @@ let sample = {
         },
         {
             date: '2020-06-07',
-            nominal: 4000000,
+            nominal: 4078900,
             information: ''
         },
         // {
@@ -179,5 +179,6 @@ let sample = {
             date: '2020-06-05',
             collected: 14.427
         }
-    ]
+    ],
+    skipped_withdrawal: []
 }
