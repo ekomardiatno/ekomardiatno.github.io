@@ -41,7 +41,32 @@ let sample = {
             date: '2020-05-27',
             nominal: 2040000,
             information: ''
-        }
+        },
+        {
+            date: '2020-06-07',
+            nominal: 4000000,
+            information: ''
+        },
+        // {
+        //     date: '2020-07-15',
+        //     nominal: 2000000,
+        //     information: ''
+        // },
+        // {
+        //     date: '2020-08-15',
+        //     nominal: 2000000,
+        //     information: ''
+        // },
+        // {
+        //     date: '2020-09-15',
+        //     nominal: 2000000,
+        //     information: ''
+        // },
+        // {
+        //     date: '2020-10-15',
+        //     nominal: 2000000,
+        //     information: ''
+        // }
     ],
     withdrawals: [
         {
@@ -62,7 +87,8 @@ let sample = {
             nominal_withdrawal: 15000000,
             nominal_increase: 2,
             nominal_increase_type: 'multipication',
-            periods_nominal_increase: 12 
+            periods_nominal_increase: 12,
+            periods_end: null
         },
         {
             start: '2022-12-15',
@@ -70,7 +96,17 @@ let sample = {
             nominal_withdrawal: 100000000,
             nominal_increase: 150000000,
             nominal_increase_type: 'addition',
-            periods_nominal_increase: 1
+            periods_nominal_increase: 1,
+            periods_end: null
+        },
+        {
+            start: '2021-01-15',
+            periods_withdrawal: 'monthly',
+            nominal_withdrawal: 3000000,
+            nominal_increase: 0,
+            nominal_increase_type: 'addition',
+            periods_nominal_increase: 12,
+            periods_end: '2022-01-01'
         }
     ],
     fee_renewal: [

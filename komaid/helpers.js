@@ -123,7 +123,8 @@ function simulated(sample) {
       increase_type: a.nominal_increase_type,
       increase: a.nominal_increase,
       periods: a.periods_nominal_increase,
-      periods_add: 0
+      periods_add: 0,
+      end: a.periods_end
     }
   })
   let yearly_withdrawal = sample.withdrawals_periodic.filter(a => {
@@ -135,7 +136,8 @@ function simulated(sample) {
       increase_type: a.nominal_increase_type,
       increase: a.nominal_increase,
       periods: a.periods_nominal_increase,
-      periods_add: 0
+      periods_add: 0,
+      end: a.periods_end
     }
   })
   for (let i = 1; i <= range; i++) {
@@ -254,25 +256,28 @@ function simulated(sample) {
         : next_monthly_withdrawal_date_d
       let monthly_periods_add = monthly_withdrawal[monthly_withdrawal_index].periods_add + 1
       let monthly_withdrawal_nominal = monthly_withdrawal[monthly_withdrawal_index].nominal
-      if (monthly_periods_add >= monthly_withdrawal[monthly_withdrawal_index].periods) {
-        switch (monthly_withdrawal[monthly_withdrawal_index].increase_type) {
-          case 'multipication':
-            monthly_withdrawal_nominal *= monthly_withdrawal[monthly_withdrawal_index].increase
-            break
-          case 'addition':
-            monthly_withdrawal_nominal += monthly_withdrawal[monthly_withdrawal_index].increase
-            break
+      let next_monthly = `${next_monthly_withdrawal_date_y}-${next_monthly_withdrawal_date_m}-${next_monthly_withdrawal_date_d}`
+      if (monthly_withdrawal[monthly_withdrawal_index].end === null || new Date(next_monthly).getTime() <= new Date(monthly_withdrawal[monthly_withdrawal_index].end).getTime()) {
+        if (monthly_periods_add >= monthly_withdrawal[monthly_withdrawal_index].periods) {
+          switch (monthly_withdrawal[monthly_withdrawal_index].increase_type) {
+            case 'multipication':
+              monthly_withdrawal_nominal *= monthly_withdrawal[monthly_withdrawal_index].increase
+              break
+            case 'addition':
+              monthly_withdrawal_nominal += monthly_withdrawal[monthly_withdrawal_index].increase
+              break
+          }
+          monthly_periods_add = 0
         }
-        monthly_periods_add = 0
+        monthly_withdrawal.push({
+          date: next_monthly,
+          nominal: monthly_withdrawal_nominal,
+          increase_type: monthly_withdrawal[monthly_withdrawal_index].increase_type,
+          increase: monthly_withdrawal[monthly_withdrawal_index].increase,
+          periods: monthly_withdrawal[monthly_withdrawal_index].periods,
+          periods_add: monthly_periods_add
+        })
       }
-      monthly_withdrawal.push({
-        date: `${next_monthly_withdrawal_date_y}-${next_monthly_withdrawal_date_m}-${next_monthly_withdrawal_date_d}`,
-        nominal: monthly_withdrawal_nominal,
-        increase_type: monthly_withdrawal[monthly_withdrawal_index].increase_type,
-        increase: monthly_withdrawal[monthly_withdrawal_index].increase,
-        periods: monthly_withdrawal[monthly_withdrawal_index].periods,
-        periods_add: monthly_periods_add
-      })
     }
 
     let yearly_withdrawal_index = yearly_withdrawal.map(a => {
