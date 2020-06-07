@@ -44,7 +44,7 @@ let sample = {
         },
         {
             date: '2020-06-07',
-            nominal: 4078900,
+            nominal: 4066660,
             information: ''
         },
         // {
