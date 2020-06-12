@@ -78,6 +78,16 @@ let sample = {
             date: '2022-10-10',
             nominal: 600000000,
             infomation: 'Mazda CX-5 Elite'
+        },
+        {
+            date: '2020-11-20',
+            nominal: 3000000,
+            infomation: ''
+        },
+        {
+            date: '2020-12-20',
+            nominal: 3000000,
+            infomation: ''
         }
     ],
     withdrawals_periodic: [
