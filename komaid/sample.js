@@ -80,8 +80,13 @@ let sample = {
             infomation: 'Mazda CX-5 Elite'
         },
         {
+            date: '2020-11-20',
+            nominal: 3000000,
+            infomation: ''
+        },
+        {
             date: '2020-12-20',
-            nominal: 6000000,
+            nominal: 3000000,
             infomation: ''
         }
     ],
