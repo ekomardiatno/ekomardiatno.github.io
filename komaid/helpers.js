@@ -257,22 +257,22 @@ function simulated(sample) {
       next_monthly_withdrawal_date_d = next_monthly_withdrawal_date_d.length < 2
         ? '0' + next_monthly_withdrawal_date_d
         : next_monthly_withdrawal_date_d
-      let monthly_periods_add = monthly_withdrawal[monthly_withdrawal_index].periods_add + 1
-      let monthly_withdrawal_nominal = monthly_withdrawal[monthly_withdrawal_index].nominal
       let next_monthly = `${next_monthly_withdrawal_date_y}-${next_monthly_withdrawal_date_m}-${next_monthly_withdrawal_date_d}`
       let withdrawal_ends = monthly_withdrawal[monthly_withdrawal_index].end
-      if (monthly_periods_add >= monthly_withdrawal[monthly_withdrawal_index].periods) {
-        switch (monthly_withdrawal[monthly_withdrawal_index].increase_type) {
-          case 'multipication':
-            monthly_withdrawal_nominal *= monthly_withdrawal[monthly_withdrawal_index].increase
-            break
-          case 'addition':
-            monthly_withdrawal_nominal += monthly_withdrawal[monthly_withdrawal_index].increase
-            break
-        }
-        monthly_periods_add = 0
-      }
       if (withdrawal_ends === null || (withdrawal_ends !== null && new Date(next_monthly).getTime() <= new Date(withdrawal_ends).getTime())) {
+        let monthly_periods_add = monthly_withdrawal[monthly_withdrawal_index].periods_add + 1
+        let monthly_withdrawal_nominal = monthly_withdrawal[monthly_withdrawal_index].nominal
+        if (monthly_periods_add >= monthly_withdrawal[monthly_withdrawal_index].periods) {
+          switch (monthly_withdrawal[monthly_withdrawal_index].increase_type) {
+            case 'multipication':
+              monthly_withdrawal_nominal *= monthly_withdrawal[monthly_withdrawal_index].increase
+              break
+            case 'addition':
+              monthly_withdrawal_nominal += monthly_withdrawal[monthly_withdrawal_index].increase
+              break
+          }
+          monthly_periods_add = 0
+        }
         monthly_withdrawal.push({
           date: next_monthly,
           nominal: monthly_withdrawal_nominal,
