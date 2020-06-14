@@ -260,25 +260,27 @@ function simulated(sample) {
       let monthly_periods_add = monthly_withdrawal[monthly_withdrawal_index].periods_add + 1
       let monthly_withdrawal_nominal = monthly_withdrawal[monthly_withdrawal_index].nominal
       let next_monthly = `${next_monthly_withdrawal_date_y}-${next_monthly_withdrawal_date_m}-${next_monthly_withdrawal_date_d}`
-      if (monthly_withdrawal[monthly_withdrawal_index].end === null || new Date(next_monthly).getTime() <= new Date(monthly_withdrawal[monthly_withdrawal_index].end).getTime()) {
-        if (monthly_periods_add >= monthly_withdrawal[monthly_withdrawal_index].periods) {
-          switch (monthly_withdrawal[monthly_withdrawal_index].increase_type) {
-            case 'multipication':
-              monthly_withdrawal_nominal *= monthly_withdrawal[monthly_withdrawal_index].increase
-              break
-            case 'addition':
-              monthly_withdrawal_nominal += monthly_withdrawal[monthly_withdrawal_index].increase
-              break
-          }
-          monthly_periods_add = 0
+      let withdrawal_ends = monthly_withdrawal[monthly_withdrawal_index].end
+      if (monthly_periods_add >= monthly_withdrawal[monthly_withdrawal_index].periods) {
+        switch (monthly_withdrawal[monthly_withdrawal_index].increase_type) {
+          case 'multipication':
+            monthly_withdrawal_nominal *= monthly_withdrawal[monthly_withdrawal_index].increase
+            break
+          case 'addition':
+            monthly_withdrawal_nominal += monthly_withdrawal[monthly_withdrawal_index].increase
+            break
         }
+        monthly_periods_add = 0
+      }
+      if (withdrawal_ends === null || (withdrawal_ends !== null && new Date(next_monthly).getTime() <= new Date(withdrawal_ends).getTime())) {
         monthly_withdrawal.push({
           date: next_monthly,
           nominal: monthly_withdrawal_nominal,
           increase_type: monthly_withdrawal[monthly_withdrawal_index].increase_type,
           increase: monthly_withdrawal[monthly_withdrawal_index].increase,
           periods: monthly_withdrawal[monthly_withdrawal_index].periods,
-          periods_add: monthly_periods_add
+          periods_add: monthly_periods_add,
+          end: withdrawal_ends
         })
       }
     }
@@ -326,9 +328,9 @@ function simulated(sample) {
     if (skipped_withdrawal.indexOf(current_date.getTime()) < 0) {
       if (withdrawals > 0) {
         let withdraw_nominal = 0
-        if (withdrawals >= 100000000) {
-          withdraw_nominal = 100000000
-          withdrawals -= 100000000
+        if (withdrawals >= 90000000) {
+          withdraw_nominal = 90000000
+          withdrawals -= 90000000
         } else {
           withdraw_nominal = withdrawals
           withdrawals -= withdrawals

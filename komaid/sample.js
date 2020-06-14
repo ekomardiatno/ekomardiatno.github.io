@@ -46,27 +46,7 @@ let sample = {
             date: '2020-06-07',
             nominal: 4066660,
             information: ''
-        },
-        // {
-        //     date: '2020-07-15',
-        //     nominal: 2000000,
-        //     information: ''
-        // },
-        // {
-        //     date: '2020-08-15',
-        //     nominal: 2000000,
-        //     information: ''
-        // },
-        // {
-        //     date: '2020-09-15',
-        //     nominal: 2000000,
-        //     information: ''
-        // },
-        // {
-        //     date: '2020-10-15',
-        //     nominal: 2000000,
-        //     information: ''
-        // }
+        }
     ],
     withdrawals: [
         {
@@ -75,9 +55,9 @@ let sample = {
             information: 'Ani'
         },
         {
-            date: '2022-10-10',
-            nominal: 600000000,
-            infomation: 'Mazda CX-5 Elite'
+            date: '2022-02-20',
+            nominal: 180000000,
+            information: ''
         }
     ],
     withdrawals_periodic: [
@@ -93,14 +73,14 @@ let sample = {
         {
             start: '2022-12-15',
             periods_withdrawal: 'yearly',
-            nominal_withdrawal: 100000000,
-            nominal_increase: 150000000,
+            nominal_withdrawal: 90000000,
+            nominal_increase: 90000000,
             nominal_increase_type: 'addition',
             periods_nominal_increase: 1,
             periods_end: null
         },
         {
-            start: '2021-01-15',
+            start: '2020-11-20',
             periods_withdrawal: 'monthly',
             nominal_withdrawal: 3000000,
             nominal_increase: 0,
