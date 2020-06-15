@@ -73,20 +73,20 @@ let sample = {
         {
             start: '2022-12-15',
             periods_withdrawal: 'yearly',
-            nominal_withdrawal: 90000000,
-            nominal_increase: 90000000,
+            nominal_withdrawal: 105000000,
+            nominal_increase: 150000000,
             nominal_increase_type: 'addition',
             periods_nominal_increase: 1,
             periods_end: null
         },
         {
-            start: '2020-11-20',
+            start: '2020-12-20',
             periods_withdrawal: 'monthly',
             nominal_withdrawal: 3000000,
             nominal_increase: 0,
             nominal_increase_type: 'addition',
             periods_nominal_increase: 12,
-            periods_end: '2022-01-01'
+            periods_end: '2021-12-20'
         }
     ],
     fee_renewal: [

@@ -84,7 +84,29 @@
   </style>
 
   <script src="./assets/js/jquery.min.js"></script>
-  <script src="./assets/js/bootstrap.bundle.min.js">
+  <script src="./assets/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var duration = 800
+    $(document).ready(function () {
+      $('.back-top').click(function (event) {
+        event.preventDefault()
+        $('html, body').animate({
+          scrollTop: 0
+        }, duration)
+        return false
+      })
+    })
+    $(window).on('load', function () {
+      let current = $('.card.current')
+      if (current.length) {
+        let offsetTop = current.offset().top
+        let height = current.height()
+        $('html, body').animate({
+          scrollTop: offsetTop - height - 30
+        }, 1000)
+        current.addClass('animated pulse slower delay-1s infinite')
+      }
+    })
   </script>
 </head>
 
