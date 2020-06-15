@@ -80,7 +80,7 @@ let sample = {
             periods_end: null
         },
         {
-            start: '2020-12-20',
+            start: '2020-11-20',
             periods_withdrawal: 'monthly',
             nominal_withdrawal: 3000000,
             nominal_increase: 0,
