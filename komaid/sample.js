@@ -86,10 +86,10 @@ let sample = {
             nominal_increase: 0,
             nominal_increase_type: 'addition',
             periods_nominal_increase: 12,
-            periods_end: '2021-02-01'
+            periods_end: '2021-03-01'
         },
         {
-            start: '2021-02-22',
+            start: '2021-03-22',
             periods_withdrawal: 'monthly',
             nominal_withdrawal: 3000000,
             nominal_increase: 0,
