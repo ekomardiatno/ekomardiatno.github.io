@@ -55,7 +55,7 @@ let sample = {
             information: 'Ani'
         },
         {
-            date: '2022-04-22',
+            date: '2022-02-22',
             nominal: 180000000,
             information: ''
         }
@@ -73,7 +73,7 @@ let sample = {
         {
             start: '2022-12-15',
             periods_withdrawal: 'yearly',
-            nominal_withdrawal: 105000000,
+            nominal_withdrawal: 90000000,
             nominal_increase: 150000000,
             nominal_increase_type: 'addition',
             periods_nominal_increase: 1,
@@ -87,15 +87,6 @@ let sample = {
             nominal_increase_type: 'addition',
             periods_nominal_increase: 12,
             periods_end: '2021-03-01'
-        },
-        {
-            start: '2020-07-20',
-            periods_withdrawal: 'monthly',
-            nominal_withdrawal: 1500000,
-            nominal_increase: 0,
-            nominal_increase_type: 'addition',
-            periods_nominal_increase: 12,
-            periods_end: '2020-11-01'
         },
         {
             start: '2021-03-22',
