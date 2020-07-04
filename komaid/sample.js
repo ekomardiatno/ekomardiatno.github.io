@@ -89,6 +89,15 @@ let sample = {
             periods_end: '2021-03-01'
         },
         {
+            start: '2020-07-20',
+            periods_withdrawal: 'monthly',
+            nominal_withdrawal: 1500000,
+            nominal_increase: 0,
+            nominal_increase_type: 'addition',
+            periods_nominal_increase: 12,
+            periods_end: '2020-11-01'
+        },
+        {
             start: '2021-03-22',
             periods_withdrawal: 'monthly',
             nominal_withdrawal: 3000000,
