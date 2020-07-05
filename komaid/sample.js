@@ -55,8 +55,13 @@ let sample = {
             information: 'Ani'
         },
         {
-            date: '2022-02-22',
+            date: '2022-06-22',
             nominal: 180000000,
+            information: ''
+        },
+        {
+            date: '2020-07-05',
+            nominal: 3000000,
             information: ''
         }
     ],
