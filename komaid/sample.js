@@ -63,6 +63,11 @@ let sample = {
             date: '2020-07-05',
             nominal: 3000000,
             information: ''
+        },
+        {
+            date: '2020-09-03',
+            nominal: 3000000,
+            information: ''
         }
     ],
     withdrawals_periodic: [
