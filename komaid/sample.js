@@ -66,17 +66,17 @@ let sample = {
         },
         {
             date: '2020-08-11',
-            nominal: 3000000,
+            nominal: 1500000,
             information: ''
         },
         {
             date: '2020-09-11',
-            nominal: 3000000,
+            nominal: 1500000,
             information: ''
         },
         {
             date: '2020-10-20',
-            nominal: 3000000,
+            nominal: 1500000,
             information: ''
         },
     ],
