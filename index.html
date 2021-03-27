@@ -1,17 +1,378 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Eko Mardiatno</title>
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
-  <link rel="stylesheet" href="./css/style.css">
-  <script src="./js/jquery.min.js"></script>
-  <script src="./js/bootstrap.bundle.min.js"></script>
-  <script src="./js/scripts.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web personal yang sengaja aku buat untuk berbagi banyak hal mulai dari yang tidak penting sampai yang penting untuk sebagian orang." />
+    <meta name="keywords" content="Web Personal" />
+    <meta name="author" content="Eko Mardiatno" />
+    <title>Eko Mardiatno</title>
+    <link rel="icon" href="assets/images/favicon.png">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900|Work+Sans:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/museo.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media-screen.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/stellar.js"></script>
+    <script src="js/typeit.js"></script>
+    <script src="js/parallax.js"></script>
+    <style>
+        .soon {
+            background-color: #333;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .soon .title,
+        .soon .title .sub-title p {
+            color: #fff;
+        }
+    </style>
 </head>
+
 <body>
-  <h1>Hello world</h1>
+    <!-- Preloader -->
+    <!--<div class="preloader">-->
+    <!--    <div class="waves">-->
+    <!--        <div class="circle-1"></div>-->
+    <!--        <div class="circle-2"></div>-->
+    <!--        <div class="circle" style="border-radius: 50%;">-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
+    <!-- Preloader end-->
+    <nav class="navbar navbar-default navbar-fixed-top" id="navbar">
+        <!--<div class="overlay-animated"></div>-->
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" collapsed="true" id="collapse">
+                    <span class="menuDiv">
+                        <span class="menu-line"></span>
+                    </span>
+                </button>
+                <a class="navbar-brand" href="#">Eko Mardiatno</a>
+            </div>
+            <div class="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="decoration" href="#depan">Depan</a></li>
+                    <li><a class="decoration" href="#tentangku">Tentangku</a></li>
+                    <li><a href="http://www.instagram.com/komafx" class="menu-special"><i class="fa fa-instagram"></i>
+                            Follow my Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="banner" id="depan">
+        <div class="banner-bg">
+            <div class="bg-img layer" data-depth="0.05"></div>
+        </div>
+        <div id="particles_js"></div>
+        <div class="container">
+            <div class="home-banner">
+                <div class="logo-banner">
+                    <img src="assets/images/logo.png">
+                </div>
+                <h1>Selamat Datang</h1>
+                <h3 class="opening">Salam kenal, namaku Eko Mardiatno. Silakan lihat-lihat jangan sungkan.</h3>
+                <div class="line"></div>
+            </div>
+        </div>
+        <!--<div class="overlay-animated"></div>-->
+        <a href="#tentangku">
+            <div class="mouse"><span></span></div>
+        </a>
+    </div>
+    <div class="section" id="tentangku">
+        <div class="container">
+            <div class="title">
+                <h2>Tentangku</h2>
+                <div class="sub-title">
+                    <p>Aku mempunyai rupa seperti manusia pada umumnya, tak ada yang aneh dari rupaku percayalah. Untuk lebih tahu tentang aku jika ingin, silakan lihat dibawah.</p>
+                </div>
+                <div class="line"></div>
+            </div>
+            <div class="info-me">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="profile">
+                            <div class="photo">
+                                <div class="about-social-wrapper">
+                                    <a class="social social-fb" href="http://www.facebook.com/emrdtn"></a>
+                                    <a class="social social-twitter" href="http://www.twitter.com/ekomardiatno"></a>
+                                    <a class="social social-ig" href="http://www.instagram.com/komafx"></a>
+                                    <a class="social social-wa" href="whatsapp://send?phone=+6282219299071"></a>
+                                </div>
+                                <img class="img-responsive" src="assets/images/IMG_20171207_170950.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-8">
+                        <div class="row">
+                            <div class="about">
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="sub-about">
+                                        <h5 class="user">Data Diri</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-sm-8">
+                                    <ul>
+                                        <li>
+                                            <div class="head-desc">Nama Lengkap</div>
+                                            <div class="body-desc">Eko Mardiatno</div>
+                                        </li>
+                                        <li>
+                                            <div class="head-desc">Agama</div>
+                                            <div class="body-desc">Islam</div>
+                                        </li>
+                                        <li>
+                                            <div class="head-desc">Tanggal Lahir</div>
+                                            <div class="body-desc">16 Januari 1995</div>
+                                        </li>
+                                        <li>
+                                            <div class="head-desc">Jenis Kelamin</div>
+                                            <div class="body-desc">Laki-laki</div>
+                                        </li>
+                                        <li>
+                                            <div class="head-desc">Alamat</div>
+                                            <div class="body-desc">Bunga Tanjung RT 08 RW 04, Desa Sungai Dawu, Rengat Barat, Kabupaten Indragiri Hulu, Riau 29351</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="about">
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="sub-about">
+                                        <h5 class="graduation">Riwayat Pendidikan</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-sm-8">
+                                    <ul>
+                                        <li>
+                                            <div class="top-desc">2001 - 2007</div>
+                                            <div class="head-desc">SD N 021 Bunga Tanjung</div>
+                                        </li>
+                                        <li>
+                                            <div class="top-desc">2007 - 2010</div>
+                                            <div class="head-desc">SMP N 5 Rengat Barat</div>
+                                        </li>
+                                        <li>
+                                            <div class="top-desc">2010 - 2013</div>
+                                            <div class="head-desc">SMA N 1 Rengat Barat</div>
+                                            <div class="body-desc">Jurusan IPA</div>
+                                        </li>
+                                        <li>
+                                            <div class="top-desc">2014 - 2017</div>
+                                            <div class="head-desc">Universitas Riau</div>
+                                            <div class="body-desc">D3 Manajemen Informatika, Jurusan Ilmu Komputer</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="about">
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="sub-about">
+                                        <h5 class="work">Riwayat Pekerjaan</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-sm-8">
+                                    <ul>
+                                        <li>
+                                            <div class="top-desc">Jan 2018 - Apr 2018</div>
+                                            <div class="head-desc">CV Webby eMedia Solusi</div>
+                                            <div class="body-desc">Web Designer</div>
+                                        </li>
+                                        <li>
+                                            <div class="top-desc">Jul 2018 - Des 2019</div>
+                                            <div class="head-desc">Diskominfoss Kuansing</div>
+                                            <div class="body-desc">Web Designer</div>
+                                        </li>
+                                        <li>
+                                            <div class="top-desc">Feb 2020 - Sekarang</div>
+                                            <div class="head-desc">Diskominfoss Kuansing</div>
+                                            <div class="body-desc">Mobile Developer</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(window).load(function() {
+            new TypeIt('.opening', {
+                strings: ["Salam kenal, namaku Eko Mardiatno. Silakan lihat-lihat jangan sungkan."],
+                speed: 50,
+                breakLines: true,
+                autoStart: false
+            });
+        })
+    </script>
+    <script>
+        var s = $('.banner-bg');
+        s.parallax();
+    </script>
+    <script>
+        setInterval(function() {
+            var oVal = ($(window).scrollTop() / 3),
+                w = $(window).width();
+            $('.banner-bg').css({
+                'transform': 'translate3d(0,-' + oVal + 'px,0)',
+                '-webkit-transform': 'translate3d(0,-' + oVal + 'px,0)',
+                '-ms-transform': 'translate3d(0,-' + oVal + 'px,0)',
+                '-o-transform': 'translate3d(0,-' + oVal + 'px,0)'
+            });
+        }, 0);
+    </script>
+    <script>
+        $(function() {
+            /* Responsive Banner */
+            setInterval(function() {
+                var x = $(window).width(),
+                    y = "";
+                if (x >= 1200) {
+                    y = $(window).height();
+                    $(".banner").css({
+                        "height": "" + y + "",
+                        "padding": "0",
+                        "display": "flex",
+                        "align-items": "center"
+                    });
+                }
+            }, 0);
+            /* Collapse by ME */
+            $("#collapse").click(function() {
+                var a = $("#collapse").attr("collapsed");
+                if (a == "true") {
+                    $(".navigation").addClass("navme-collapse");
+                    $(".navbar").addClass("navbarme-collapse");
+                    $("#collapse").removeClass("collapsed");
+                    $("#collapse").attr("collapsed", "false");
+                } else if (a == "false") {
+                    $(".navigation").removeClass("navme-collapse");
+                    $(".navbar").removeClass("navbarme-collapse");
+                    $("#collapse").addClass("collapsed");
+                    $("#collapse").attr("collapsed", "true");
+                }
+            });
+            /* Scrollspy, Affix & jQuery Easing */
+            // offset
+            var n = $('#navbar').height();
+            if ($(window).width() >= 768) {
+                n = n + (15 * 2);
+            } else {
+                n = n;
+            }
+            // Scrollspy
+            $('body').scrollspy({
+                target: '.navbar',
+                offset: n
+            });
+            // Affix
+            $('.navbar').affix({
+                    offset: {
+                        top: n
+                    }
+                })
+                // jQuery Easing
+            $('.nav li a, .banner a').bind('click', function(event) {
+                if (!$(this).parent().hasClass('dropdown')) {
+                    $('.nav li.active').removeClass('active');
+                    $(this).parent().addClass('active');
+                    var $anchor = this.hash;
+                    $('html, body').stop().animate({
+                        scrollTop: ($($anchor).offset().top - (n - 1))
+                    }, 800, 'easeInOutExpo');
+                }
+                event.preventDefault();
+            });
+        });
+    </script>
+    <a class="back-to-top" href="#"></a>
+    <script>
+        jQuery(document).ready(function() {
+            var offset = 800,
+                duration = 800;
+            jQuery(window).scroll(function() {
+                if (jQuery(this).scrollTop() > offset) {
+                    jQuery('.back-to-top').fadeIn(duration);
+                } else {
+                    jQuery('.back-to-top').fadeOut(duration);
+                }
+            });
+            jQuery('.back-to-top').click(function(event) {
+                event.preventDefault();
+                jQuery('html, body').animate({
+                    scrollTop: 0
+                }, duration);
+                return false;
+            });
+        });
+    </script>
+    <script>
+        $(function() {
+            $.stellar({
+                horizontalScrolling: false,
+                verticalOffset: 20
+            });
+        });
+    </script>
+    <script>
+        setTimeout(function() {
+            particlesJS.load('particles_js', 'assets/json/particlesjs-config.json', function() {
+                console.log('callback - particles.js config loaded');
+            });
+        }, 100)
+    </script>
+    <script>
+        //preloader
+        // $(window).on('load', function () {
+        //     var $preloader = $('.preloader');
+        //     $preloader.delay(500).fadeOut('slow');
+        // });
+    </script>
+    <script>
+        function rounding(val, length = 3) {
+            if (typeof val === 'number') {
+                val = val.toString()
+            } else {
+                return val
+            }
+            var dotpos = val.indexOf('.')
+            var frontofdot
+            var backofdot
+            if (dotpos > -1) {
+                frontofdot = val.substring(0, dotpos)
+                backofdot = val.substring(dotpos + 1, dotpos + (length + 2))
+                if (length <= 0) {
+                    if (parseInt(backofdot.substring(0, 1)) > 5) {
+                        frontofdot = parseInt(frontofdot) + 1
+                    }
+                    val = frontofdot.toString()
+                } else {
+                    if (parseInt(backofdot.substring(length, length + 1)) > 5) {
+                        var backofdotint = parseInt(backofdot.substring(0, length)) + 1
+                        backofdot = backofdot.substring(0, length - backofdotint.toString().length) + backofdotint
+                        backofdot = backofdot
+                    } else {
+                        backofdot = backofdot.substring(0, length)
+                    }
+                    val = frontofdot + '.' + backofdot
+                }
+            }
+            // return backofdot
+            return typeof val === 'string' ? Number(val) : val
+        }
+    </script>
 </body>
+
 </html>
