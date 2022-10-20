@@ -523,6 +523,10 @@ body {
     background-color: #fff;
 }
 
+.section.section-gray-light {
+    background-color: #f3f3f3;
+}
+
 .section .title {
     text-align: center;
     margin-bottom: 36px;
