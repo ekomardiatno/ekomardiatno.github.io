@@ -360,11 +360,6 @@ body {
     box-shadow: 2px 4px 10px #6b0f0f;
 }
 
-.navbar-default.affix .navbar-nav>li>a.menu-special {
-    color: #fff;
-    padding: 8px 10px
-}
-
 .navbar-default.affix .navbar-nav>li>a.menu-special:hover,
 .navbar-default.affix .navbar-nav>li>a.menu-special:focus {
     color: #fff;
@@ -377,9 +372,16 @@ body {
     vertical-align: middle;
 }
 
-.navbar-default.affix .navbar-nav>li>a.menu-special i {
-    margin-right: 5px;
+@media (min-width: 960px) {
+    .navbar-default.affix .navbar-nav>li>a.menu-special {
+        padding: 8px 10px
+    }
+    
+    .navbar-default.affix .navbar-nav>li>a.menu-special i {
+        margin-right: 5px;
+    }
 }
+
 
 
 /* Page Header */
