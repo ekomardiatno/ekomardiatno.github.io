@@ -271,20 +271,7 @@ body {
 .navbar-default .navbar-nav>li>a {
     color: #fff;
     padding: 8px 15px;
-    border-radius: 3px;
-}
-
-.navbar-default .navbar-nav>li>a.menu-special {
-    background-color: #ff3636;
-    color: #fff;
-    box-shadow: 2px 2px 10px #6b0f0f;
-    transition: all .3s;
-}
-
-.navbar-default .navbar-nav>li>a.menu-special:hover,
-.navbar-default .navbar-nav>li>a.menu-special:focus {
-    background-color: #e43333;
-    box-shadow: 2px 4px 10px #6b0f0f;
+    border-radius: 50px;
 }
 
 .navbar-default .navbar-nav>li>a:hover,
@@ -349,14 +336,49 @@ body {
     background-color: rgba(0, 0, 0, .2);
 }
 
+.navbar-default .navbar-nav>li>a.menu-special {
+    background-color: #ff3636;
+    color: #fff;
+    box-shadow: 2px 2px 10px #6b0f0f;
+    transition: all .3s;
+}
+
+.navbar-default .navbar-nav>li>a.menu-special.bg-blue {
+    background-color: #348dd9;
+    box-shadow: 2px 2px 10px #164771;
+}
+
+.navbar-default .navbar-nav>li>a.menu-special.bg-blue:hover,
+.navbar-default .navbar-nav>li>a.menu-special.bg-blue:focus {
+    background-color: #2c76b6;
+    box-shadow: 2px 2px 10px #164771;
+}
+
+.navbar-default .navbar-nav>li>a.menu-special:hover,
+.navbar-default .navbar-nav>li>a.menu-special:focus {
+    background-color: #e43333;
+    box-shadow: 2px 4px 10px #6b0f0f;
+}
+
 .navbar-default.affix .navbar-nav>li>a.menu-special {
     color: #fff;
+    padding: 8px 10px
 }
 
 .navbar-default.affix .navbar-nav>li>a.menu-special:hover,
 .navbar-default.affix .navbar-nav>li>a.menu-special:focus {
     color: #fff;
     background-color: #ff3636;
+}
+
+.navbar-default .navbar-nav>li>a.menu-special i {
+    margin-right: 10px;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.navbar-default.affix .navbar-nav>li>a.menu-special i {
+    margin-right: 5px;
 }
 
 
@@ -892,6 +914,15 @@ body {
     .photo .about-social-wrapper .social {
         opacity: 1;
         transform: translateY(-5px);
+    }
+}
+
+@media (min-width: 960px) {
+    .navbar-default .navbar-nav>li>a.menu-special {
+        margin: 0 5px;
+    }
+    .navbar-default .navbar-nav>li:last-child>a.menu-special {
+        margin-right: 0
     }
 }
 
