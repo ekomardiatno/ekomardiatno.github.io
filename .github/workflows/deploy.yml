@@ -76,8 +76,8 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            rm -rf /home/ekomardiatno/ekomardiatno.github.io/dist
-            mkdir -p /home/ekomardiatno/ekomardiatno.github.io/dist
+            rm -rf /home/ekomardiatno/ekomardiatno.github.io
+            mkdir -p /home/ekomardiatno/ekomardiatno.github.io
             exit
 
       - name: Copy build to server
@@ -87,7 +87,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           source: "dist/*"
-          target: "/home/ekomardiatno/ekomardiatno.github.io/dist"
+          target: "/home/ekomardiatno/ekomardiatno.github.io"
 
       - name: Restart Nginx
         uses: appleboy/ssh-action@v1
