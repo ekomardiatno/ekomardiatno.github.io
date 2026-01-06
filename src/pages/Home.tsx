@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 export default function Home() {
   function onGoToSection(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
     e.preventDefault();
@@ -13,9 +15,32 @@ export default function Home() {
     }
   }
 
+  const [screenHeight, setScreenHeight] = useState(window.innerHeight);
+  const [, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth((prev) => {
+        if (prev !== window.innerWidth) {
+          setScreenHeight(window.innerHeight);
+          return window.innerWidth;
+        }
+        return prev;
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
-      <main className="min-h-screen flex items-center banner">
+      <main
+        style={{ minHeight: `${screenHeight}px` }}
+        className="flex items-center banner"
+      >
         <section className="relative py-5 max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
             <div className="col-span-2">
