@@ -22,4 +22,5 @@ jobs:
             git pull origin main
             npm install
             npm run build
+            npm run deploy
             sudo systemctl restart nginx
