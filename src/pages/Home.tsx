@@ -38,7 +38,7 @@ export default function Home() {
                   className="inline-flex items-center justify-center rounded-lg bg-red-500 px-6 py-3 text-sm font-medium text-white hover:bg-red-600 transition"
                   onClick={onGoToSection}
                 >
-                  My Works
+                  My Projects
                 </a>
 
                 <a
@@ -57,10 +57,9 @@ export default function Home() {
       <section id="projects" className="bg-slate-900 text-slate-100 py-24 pt-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-14">
-            <h3 className="text-3xl font-bold mb-3">Selected Works</h3>
+            <h3 className="text-3xl font-bold mb-3">Selected Projects</h3>
             <p className="text-slate-400 max-w-2xl">
-              A small selection of projects I've worked on, focusing on web and
-              mobile applications.
+              A small selection of projects I've worked on.
             </p>
           </div>
 
@@ -93,7 +92,8 @@ export default function Home() {
 
               <div className="absolute bottom-0 left-0 right-0 py-4 px-6">
                 <a
-                  href="#"
+                  href="https://play.google.com/store/apps/details?id=com.koma.copek"
+                  target="_blank"
                   className="text-sm font-medium text-red-400 hover:text-red-300"
                 >
                   View Project →
@@ -117,7 +117,8 @@ export default function Home() {
 
               <div className="absolute bottom-0 left-0 right-0 py-4 px-6">
                 <a
-                  href="#"
+                  href="https://play.google.com/store/apps/details?id=com.koma.monager"
+                  target="_blank"
                   className="text-sm font-medium text-red-400 hover:text-red-300"
                 >
                   View Project →
@@ -141,7 +142,8 @@ export default function Home() {
               </div>
               <div className="absolute bottom-0 left-0 right-0 py-4 px-6">
                 <a
-                  href="#"
+                  href="https://play.google.com/store/apps/details?id=com.koma.emart"
+                  target="_blank"
                   className="text-sm font-medium text-red-400 hover:text-red-300"
                 >
                   View Project →
