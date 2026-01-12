@@ -39,7 +39,7 @@ export default function Home() {
     <>
       <main
         style={{ minHeight: `${screenHeight}px` }}
-        className="flex items-center banner"
+        className="flex items-center overlay-dark-bg"
       >
         <section className="relative py-5 max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
