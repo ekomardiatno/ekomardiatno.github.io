@@ -1,7 +1,7 @@
 export default function Eksamart() {
   return (
     <div className="">
-      <div className="py-24 overlay-dark-bg">
+      <div className="py-24 banner overlay-dark-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold mb-3">Eksamart</h1>
           <p className="text-lg text-slate-200 mb-4">Policy Privacy</p>
