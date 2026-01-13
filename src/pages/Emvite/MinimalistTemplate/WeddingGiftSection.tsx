@@ -52,7 +52,7 @@ export default function WeddingGiftSection() {
         <h2 className="mb-4 font-serif text-3xl">Amplop Digital</h2>
         <p className="mx-auto max-w-full text-sm text-slate-500">
           Kehadiran Anda merupakan hadiah terindah bagi kami. Namun, apabila
-          berkenan memberikan tanda kasih, kami sangat berterima kasih˝
+          berkenan memberikan tanda kasih, kami sangat berterima kasih
         </p>
       </div>
 
