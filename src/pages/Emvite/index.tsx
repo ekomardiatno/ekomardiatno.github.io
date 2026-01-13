@@ -1,30 +1,39 @@
-import { useParams } from "react-router";
-import CoupleSection from "./CoupleSection";
-import EventDetailsSection from "./EventDetailsSection";
-import LocationSection from "./LocationSection";
-import RsvpSection from "./RsvpSection";
-import WeddingGiftSection from "./WeddingGiftSection";
-import GuestbookSection from "./GuestbookSection";
-import CountdownSection from "./CountdownSection";
-import HeroSection from "./HeroSection";
+import MinimalistTemplate from "./MinimalistTemplate";
+import { EmviteContext } from "../../hooks/useEmvite";
+import Toast from "./Toast";
+import { useState } from "react";
 
 export default function Emvite() {
-  const params = useParams() as {
-    weddingId: string;
+  // const params = useParams() as {
+  //   weddingId: string;
+  // };
+  const [toastDetails, setToastDetails] = useState<{
+    text: string;
+    duration?: number;
+  } | null>(null);
+
+  const toast = (text: string, duration?: number) => {
+    setToastDetails({
+      text,
+      duration: duration,
+    });
   };
 
-  console.log(params);
+  const onHidden = () => {
+    console.log('first')
+    setToastDetails(null);
+  };
 
   return (
-    <div className="min-h-screen bg-neutral-50">
-      <HeroSection />
-      <CountdownSection />
-      <CoupleSection />
-      <EventDetailsSection />
-      <LocationSection />
-      <RsvpSection />
-      <WeddingGiftSection />
-      <GuestbookSection />
-    </div>
+    <EmviteContext.Provider value={{ toast }}>
+      <MinimalistTemplate />
+      {toastDetails && (
+        <Toast
+          text={toastDetails.text}
+          duration={toastDetails.duration}
+          onHidden={onHidden}
+        />
+      )}
+    </EmviteContext.Provider>
   );
 }

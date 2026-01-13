@@ -29,11 +29,11 @@ function calculateTimeLeft(targetDate: Date): TimeLeft {
 
 function TimeBox({ value, label }: { value: number; label: string }) {
   return (
-    <div className="flex flex-col items-center rounded-xl bg-white px-5 py-4 shadow-sm">
-      <span className="text-2xl font-semibold text-neutral-900">
+    <div className="flex flex-col items-center rounded-xl bg-white px-5 py-4 shadow-sm flex-[85px] grow-0">
+      <span className="text-2xl font-semibold text-slate-900">
         {value.toString().padStart(2, "0")}
       </span>
-      <span className="mt-1 text-xs uppercase tracking-wide text-neutral-500">
+      <span className="mt-1 text-xs uppercase tracking-wide text-slate-500">
         {label}
       </span>
     </div>
@@ -59,19 +59,19 @@ export default function CountdownSection() {
   return (
     <section id="countdown" className="px-6 py-20 text-center">
       <div className="mb-12">
-        <h2 className="mb-4 font-serif text-3xl text-neutral-900">
-          Counting Down to Our Big Day
+        <h2 className="mb-4 font-serif text-3xl text-slate-900">
+          Menuju Hari Bahagia Kami
         </h2>
-        <p className="text-sm text-neutral-500">
-          We can't wait to celebrate with you
+        <p className="text-sm text-slate-500">
+          Kami tidak sabar untuk merayakannya bersama Anda
         </p>
       </div>
 
       <div className="mx-auto flex max-w-xl flex-wrap justify-center gap-4">
-        <TimeBox value={timeLeft.days} label="Day(s)" />
-        <TimeBox value={timeLeft.hours} label="Hour(s)" />
-        <TimeBox value={timeLeft.minutes} label="Minute(s)" />
-        <TimeBox value={timeLeft.seconds} label="Second(s)" />
+        <TimeBox value={timeLeft.days} label="Hari" />
+        <TimeBox value={timeLeft.hours} label="Jam" />
+        <TimeBox value={timeLeft.minutes} label="Menit" />
+        <TimeBox value={timeLeft.seconds} label="Detik" />
       </div>
     </section>
   );
