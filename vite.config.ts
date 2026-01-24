@@ -9,9 +9,12 @@ export default defineConfig({
     react(),
     tailwindcss(),
     VitePWA({
-      registerType: "prompt",
+      registerType: "autoUpdate",
       includeAssets: ["favicon.ico", "apple-touch-icon.png"],
-      injectRegister: 'auto',
+      injectRegister: "auto",
+      workbox: {
+        navigateFallback: null,
+      },
       manifest: {
         name: "EMDEV",
         short_name: "EMDEV",
