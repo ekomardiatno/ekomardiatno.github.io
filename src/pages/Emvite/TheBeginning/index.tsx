@@ -8,7 +8,7 @@ import LocationSection from "./LocationSection";
 import RsvpSection from "./RsvpSection";
 import WeddingGiftSection from "./WeddingGiftSection";
 
-export default function MinimalistTemplate() {
+export default function TheBeginning() {
   return (
     <div className="min-h-screen bg-slate-50">
       <HeroSection />

@@ -5,5 +5,5 @@ import { HashRouter } from "react-router";
 createRoot(document.getElementById("root")!).render(
   <HashRouter>
     <App />
-  </HashRouter>
+  </HashRouter>,
 );

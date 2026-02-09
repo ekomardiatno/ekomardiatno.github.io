@@ -1,3 +1,4 @@
+import { PROVIDERS } from "../../../constants";
 import useEmvite from "../../../hooks/useEmvite";
 
 type Gift = {
@@ -18,9 +19,18 @@ const GiftBox = ({ recipient, providerName, accountNumber }: Gift) => {
     }
   };
 
+  const providerLogo = PROVIDERS.find((p) => p.name === providerName)?.logo
+    .regular;
+
   return (
     <div className="rounded-2xl bg-white p-8 text-center shadow-sm only:col-span-2 only:justify-self-center">
-      <p className="text-sm text-slate-600">{providerName}</p>
+      {providerLogo ? (
+        <div className="flex items-center justify-center mb-4">
+          <img src={providerLogo} className="w-28 h-auto" />
+        </div>
+      ) : (
+        <p className="text-sm text-slate-600">{providerName}</p>
+      )}
 
       <p className="mt-1 font-mono text-lg tracking-wider">{accountNumber}</p>
 
@@ -38,13 +48,9 @@ const GiftBox = ({ recipient, providerName, accountNumber }: Gift) => {
 };
 
 export default function WeddingGiftSection() {
-  const gifts: Gift[] = [
-    {
-      recipient: "Eko Mardiatno",
-      providerName: "Bank Example",
-      accountNumber: "1234567890",
-    },
-  ];
+  const { data } = useEmvite();
+
+  if (!data || data.giftInfos.length < 1) return null;
 
   return (
     <section id="gift" className="bg-slate-50 px-6 py-20 text-slate-900">
@@ -57,11 +63,11 @@ export default function WeddingGiftSection() {
       </div>
 
       <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
-        {gifts.map((gift, i) => (
+        {data.giftInfos.map((gift, i) => (
           <GiftBox
             accountNumber={gift.accountNumber}
-            providerName={gift.providerName}
-            recipient={gift.recipient}
+            providerName={gift.provider}
+            recipient={gift.accountName}
             key={i}
           />
         ))}

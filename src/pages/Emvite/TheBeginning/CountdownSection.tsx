@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import useEmvite from "../../../hooks/useEmvite";
 
 type TimeLeft = {
   days: number;
@@ -41,10 +42,33 @@ function TimeBox({ value, label }: { value: number; label: string }) {
 }
 
 export default function CountdownSection() {
-  const weddingDate = useMemo(() => new Date("2026-09-20T08:00:00"), []);
+  const { data } = useEmvite();
+
+  const mainEvent = useMemo(() => {
+    if (!data || data.events.length < 1) return null;
+    return data.events.find((ev) => ev.isMainEvent) || data.events[0];
+  }, [data]);
+
+  const weddingDate = useMemo(() => {
+    let date = new Date(new Date().getTime() + 100 * 24 * 60 * 60 * 1000);
+    if (mainEvent) {
+      const splittedStartTime = mainEvent.startTime
+        .split(":")
+        .map((v) => Number(v.trim()));
+      date = new Date(
+        new Date(mainEvent.date).setHours(
+          splittedStartTime[0],
+          splittedStartTime[1],
+          splittedStartTime[2],
+          0,
+        ),
+      );
+    }
+    return date;
+  }, [mainEvent]);
 
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(
-    calculateTimeLeft(weddingDate)
+    calculateTimeLeft(weddingDate),
   );
 
   useEffect(() => {
@@ -55,6 +79,10 @@ export default function CountdownSection() {
       clearInterval(timer);
     };
   }, [weddingDate]);
+
+  if (!mainEvent) {
+    return null;
+  }
 
   return (
     <section id="countdown" className="px-6 py-20 text-center">

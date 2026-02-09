@@ -1,0 +1,1 @@
+export const EMVITE_API_URL = import.meta.env.VITE_EMVITE_API_URL ?? 'http://localhost:5001/api'

@@ -4,8 +4,8 @@ type EventProps = {
   title: string;
   date: string;
   time: string;
-  venue: string;
-  address: string;
+  venue: string | null;
+  address: string | null;
   isMain?: boolean;
 };
 
@@ -50,15 +50,17 @@ export default function EventCard({
         >
           {time}
         </p>
-        <p className="font-medium">{venue}</p>
-        <p
-          className={classNames("text-xs", {
-            "text-slate-300": isMain,
-            "text-slate-500": !isMain,
-          })}
-        >
-          {address}
-        </p>
+        {venue && <p className="font-medium">{venue}</p>}
+        {address && (
+          <p
+            className={classNames("text-xs", {
+              "text-slate-300": isMain,
+              "text-slate-500": !isMain,
+            })}
+          >
+            {address}
+          </p>
+        )}
       </div>
     </div>
   );

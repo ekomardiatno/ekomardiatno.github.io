@@ -10,7 +10,8 @@ export default function App() {
       <Route index path="/" element={<Home />} />
       <Route path="/monflo" element={<Monflo />} />
       <Route path="/eksamart" element={<Eksamart />} />
-      <Route path="/emvite/:weddingId" element={<Emvite />} />
+      <Route path="/emvite/preview/:id" element={<Emvite mode="preview" />} />
+      <Route path="/emvite/guest/:id" element={<Emvite mode="guest" />} />
     </Routes>
   );
 }
