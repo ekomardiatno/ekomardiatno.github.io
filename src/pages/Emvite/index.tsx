@@ -1,4 +1,5 @@
 import TheBeginning from "./TheBeginning";
+import { template } from "./constants";
 import { EmviteContext } from "../../hooks/useEmvite";
 import Toast from "./Toast";
 import { useCallback, useEffect, useState } from "react";
@@ -139,7 +140,11 @@ export default function Emvite({ mode }: { mode: "preview" | "guest" }) {
         mode,
       }}
     >
-      <TheBeginning />
+      {(() => {
+        const matched = template.find(t => t.code === data?.template?.templateCode);
+        const TemplateComponent = matched?.TemplateComponent ?? TheBeginning;
+        return <TemplateComponent />;
+      })()}
       {toastDetails && (
         <Toast
           text={toastDetails.text}

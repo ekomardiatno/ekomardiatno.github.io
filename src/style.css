@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
@@ -108,6 +109,95 @@ body {
   left: 0px;
   right: 0px;
 }
+
+.bg-hero-evergreen {
+  background-image: url("assets/images/hero-bg-evergreen.webp");
+}
+
+.overlay-green-bg::before {
+  position: relative;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 30%,
+      var(--color-stone-50)
+    ),
+    linear-gradient(-15deg, rgba(0, 0, 0, 0) 40%, var(--color-stone-50));
+  position: absolute;
+  content: "";
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+/* Celestial template styles */
+.celestial-bg {
+  background: linear-gradient(180deg, #0a0e1a 0%, #1a1040 50%, #0a0e1a 100%);
+}
+
+.star-field::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow:
+    50px 80px 0 0px rgba(255,255,255,0.6),
+    150px 40px 0 0px rgba(255,255,255,0.4),
+    250px 120px 0 0px rgba(255,255,255,0.5),
+    320px 200px 0 1px rgba(255,255,255,0.7),
+    80px 300px 0 0px rgba(255,255,255,0.3),
+    200px 350px 0 1px rgba(255,255,255,0.5),
+    420px 60px 0 0px rgba(255,255,255,0.4),
+    500px 180px 0 1px rgba(255,255,255,0.6),
+    600px 100px 0 0px rgba(255,255,255,0.3),
+    30px 500px 0 0px rgba(255,255,255,0.5),
+    180px 450px 0 1px rgba(255,255,255,0.4),
+    350px 400px 0 0px rgba(255,255,255,0.6),
+    550px 300px 0 0px rgba(255,255,255,0.3),
+    700px 250px 0 1px rgba(255,255,255,0.5),
+    100px 600px 0 0px rgba(255,255,255,0.4),
+    450px 500px 0 1px rgba(255,255,255,0.7),
+    650px 400px 0 0px rgba(255,255,255,0.3),
+    300px 550px 0 0px rgba(255,255,255,0.5),
+    750px 150px 0 0px rgba(255,255,255,0.4),
+    50px 200px 0 1px rgba(255,255,255,0.6),
+    400px 300px 0 0px rgba(255,255,255,0.3),
+    280px 50px 0 0px rgba(255,255,255,0.5),
+    530px 450px 0 1px rgba(255,255,255,0.4),
+    680px 80px 0 0px rgba(255,255,255,0.6),
+    120px 380px 0 0px rgba(255,255,255,0.3),
+    480px 520px 0 1px rgba(255,255,255,0.5),
+    220px 250px 0 0px rgba(255,255,255,0.4),
+    370px 150px 0 0px rgba(255,255,255,0.6),
+    590px 350px 0 1px rgba(255,255,255,0.3),
+    60px 420px 0 0px rgba(255,255,255,0.5);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+@keyframes gold-shimmer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+.gold-shimmer { animation: gold-shimmer 3s ease-in-out infinite; }
+
+.glass-card {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 168, 83, 0.2);
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(212, 168, 83, 0.3);
+}
+
+.gold-scrollbar::-webkit-scrollbar { height: 4px; }
+.gold-scrollbar::-webkit-scrollbar-track { background: #1e293b; }
+.gold-scrollbar::-webkit-scrollbar-thumb { background: #d4a853; border-radius: 2px; }
 
 .circle-divider::before, .circle-divider::after {
   content: "";
