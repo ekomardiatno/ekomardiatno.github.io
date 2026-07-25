@@ -8,17 +8,51 @@ export default function CoverPage() {
 
   const { wedding, guest } = data;
   const mainEvent = data.events.find((e) => e.isMainEvent) || data.events[0];
-  const bgImage = wedding.groomPhotoPath
-    ? `${EMVITE_API_URL}/file?filePath=${wedding.groomPhotoPath}`
-    : null;
+
+  const toPhotoUrl = (path: string | null) =>
+    path
+      ? path.startsWith('http')
+        ? path
+        : `${EMVITE_API_URL}/file?filePath=${path}`
+      : null;
+
+  const groomPhoto = toPhotoUrl(wedding.groomPhotoPath);
+  const bridePhoto = toPhotoUrl(wedding.bridePhotoPath);
+  const hasBothPhotos = groomPhoto && bridePhoto;
+  const singlePhoto = groomPhoto || bridePhoto;
 
   return (
     <div className="relative flex flex-col items-center justify-center w-full h-full px-8">
-      {bgImage && (
+      {hasBothPhotos ? (
+        <>
+          {/* Split background — groom left, bride right */}
+          <div
+            className="absolute inset-0 bg-cover bg-center memoir-ken-burns"
+            style={{
+              backgroundImage: `url(${groomPhoto})`,
+              clipPath: 'polygon(0 0, 55% 0, 45% 100%, 0 100%)',
+            }}
+          />
+          <div
+            className="absolute inset-0 bg-cover bg-center memoir-ken-burns"
+            style={{
+              backgroundImage: `url(${bridePhoto})`,
+              clipPath: 'polygon(55% 0, 100% 0, 100% 100%, 45% 100%)',
+            }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(to bottom, rgba(20,18,16,0.55) 0%, rgba(20,18,16,0.85) 100%)',
+            }}
+          />
+        </>
+      ) : singlePhoto ? (
         <>
           <div
             className="absolute inset-0 bg-cover bg-center memoir-ken-burns"
-            style={{ backgroundImage: `url(${bgImage})` }}
+            style={{ backgroundImage: `url(${singlePhoto})` }}
           />
           <div
             className="absolute inset-0"
@@ -28,7 +62,7 @@ export default function CoverPage() {
             }}
           />
         </>
-      )}
+      ) : null}
 
       <div className="relative z-10 text-center">
         {guest && (

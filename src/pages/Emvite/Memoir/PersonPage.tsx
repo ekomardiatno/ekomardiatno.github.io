@@ -19,7 +19,9 @@ export default function PersonPage({
   personType,
 }: PersonPageProps) {
   const photoUrl = photoPath
-    ? `${EMVITE_API_URL}/file?filePath=${photoPath}`
+    ? photoPath.startsWith('http')
+      ? photoPath
+      : `${EMVITE_API_URL}/file?filePath=${photoPath}`
     : null;
 
   const initials = name
@@ -33,27 +35,23 @@ export default function PersonPage({
   return (
     <div className="flex flex-col items-center justify-center w-full h-full">
       {photoUrl ? (
-        <>
-          {/* Photo fills top portion */}
-          <div className="relative w-full" style={{ height: '55%' }}>
-            <div
-              className="absolute inset-0 bg-cover bg-center memoir-ken-burns"
-              style={{ backgroundImage: `url(${photoUrl})` }}
-            />
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  'linear-gradient(to bottom, transparent 40%, #141210 100%)',
-              }}
-            />
-          </div>
-
-          {/* Info below photo */}
+        <div className="relative w-full h-full">
+          {/* Photo fills entire page */}
           <div
-            className="flex-1 flex flex-col items-center justify-center px-8 w-full"
-            style={{ marginTop: '-2rem' }}
-          >
+            className="absolute inset-0 bg-cover bg-top memoir-ken-burns"
+            style={{ backgroundImage: `url(${photoUrl})` }}
+          />
+          {/* Gradient overlay — seamless fade into background */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(to bottom, rgba(20,18,16,0.1) 0%, rgba(20,18,16,0.3) 35%, rgba(20,18,16,0.85) 65%, #141210 85%)',
+            }}
+          />
+
+          {/* Info overlaid at bottom */}
+          <div className="absolute inset-x-0 bottom-0 flex flex-col items-center px-8 pb-16">
             <h2
               className="memoir-reveal text-center"
               style={{
@@ -108,7 +106,7 @@ export default function PersonPage({
               </p>
             )}
           </div>
-        </>
+        </div>
       ) : (
         /* No photo — centered initials + info */
         <div className="flex flex-col items-center justify-center px-8 text-center">
