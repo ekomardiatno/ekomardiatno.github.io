@@ -82,8 +82,8 @@ export default function RsvpPage() {
   const currentAttendance = attendance ?? statusAttendance;
 
   return (
-    <div className="flex flex-col w-full h-full px-6 py-20">
-      <div className="flex-1 flex flex-col items-center justify-start max-w-lg mx-auto w-full">
+    <div className="flex flex-col w-full px-6 pt-20 pb-20">
+      <div className="flex flex-col items-center justify-start max-w-lg mx-auto w-full">
         <h2
           className="memoir-reveal text-center mb-2"
           style={{

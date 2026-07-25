@@ -22,22 +22,26 @@ export default function StoryNavigator({ pages }: StoryNavigatorProps) {
   const [dragOffset, setDragOffset] = useState(0);
   const [flashSide, setFlashSide] = useState<'left' | 'right' | null>(null);
 
+  const frameRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const touchStartRef = useRef<{ x: number; y: number; time: number } | null>(
     null,
   );
   const directionLockedRef = useRef<'horizontal' | 'vertical' | null>(null);
-  const pageWidth = useRef(window.innerWidth);
+  const [pageWidth, setPageWidth] = useState(0);
 
   const totalPages = pages.length;
 
-  // Update pageWidth on resize
+  // Measure frame width (portrait-capped on desktop)
   useEffect(() => {
-    const onResize = () => {
-      pageWidth.current = window.innerWidth;
+    const measure = () => {
+      if (frameRef.current) {
+        setPageWidth(frameRef.current.offsetWidth);
+      }
     };
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
   }, []);
 
   // Lock body scroll
@@ -137,7 +141,7 @@ export default function StoryNavigator({ pages }: StoryNavigatorProps) {
 
       const elapsed = Date.now() - touchStartRef.current.time;
       const velocity = Math.abs(dragOffset) / elapsed;
-      const threshold = pageWidth.current * 0.2;
+      const threshold = pageWidth * 0.2;
 
       if (velocity > 0.5 || Math.abs(dragOffset) > threshold) {
         if (dragOffset < 0) goNext();
@@ -163,10 +167,9 @@ export default function StoryNavigator({ pages }: StoryNavigatorProps) {
     };
   }, [currentPage, totalPages, dragOffset, goNext, goPrev]);
 
-  // Tap navigation
+  // Tap navigation — use frame-relative position
   const handleClick = useCallback(
     (e: React.MouseEvent) => {
-      // Skip if target is interactive
       const target = e.target as HTMLElement;
       if (
         target.tagName === 'BUTTON' ||
@@ -180,9 +183,12 @@ export default function StoryNavigator({ pages }: StoryNavigatorProps) {
       )
         return;
 
-      const x = e.clientX;
-      const w = window.innerWidth;
-      const leftZone = w * 0.35;
+      const frame = frameRef.current;
+      if (!frame) return;
+
+      const rect = frame.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const leftZone = rect.width * 0.35;
 
       if (x < leftZone) {
         setFlashSide('left');
@@ -203,65 +209,68 @@ export default function StoryNavigator({ pages }: StoryNavigatorProps) {
     }
   }, [flashSide]);
 
-  const translateX = -(currentPage * pageWidth.current) + dragOffset;
+  const translateX = -(currentPage * pageWidth) + dragOffset;
   const transitionStyle = isDragging
     ? 'none'
     : 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)';
 
   return (
-    <div className="memoir-bg" style={{ width: '100vw', height: '100dvh' }}>
-      {/* Progress bars */}
-      <div className="memoir-progress">
-        {pages.map((_, i) => (
-          <div key={i} className="memoir-progress-segment">
-            <div
-              className="memoir-progress-fill"
-              style={{
-                width: i < currentPage ? '100%' : i === currentPage ? '100%' : '0%',
-                opacity: i <= currentPage ? 1 : 0.3,
-              }}
-            />
-          </div>
-        ))}
-      </div>
-
-      {/* Track */}
-      <div
-        ref={trackRef}
-        className="memoir-track"
-        onClick={handleClick}
-        style={{
-          transform: `translateX(${translateX}px)`,
-          transition: transitionStyle,
-          willChange: isDragging ? 'transform' : 'auto',
-        }}
-      >
-        {pages.map((page, i) => {
-          const isActive = i === currentPage;
-          return (
-            <div
-              key={page.key}
-              className={`memoir-page ${page.scrollable ? 'memoir-page-scrollable' : ''} ${isActive ? 'memoir-page-active' : ''}`}
-              aria-hidden={!isActive}
-              inert={!isActive}
-            >
-              {page.content}
+    <div className="memoir-bg">
+      <div className="memoir-frame" ref={frameRef}>
+        {/* Progress bars */}
+        <div className="memoir-progress">
+          {pages.map((_, i) => (
+            <div key={i} className="memoir-progress-segment">
+              <div
+                className="memoir-progress-fill"
+                style={{
+                  width: i < currentPage ? '100%' : i === currentPage ? '100%' : '0%',
+                  opacity: i <= currentPage ? 1 : 0.3,
+                }}
+              />
             </div>
-          );
-        })}
-      </div>
+          ))}
+        </div>
 
-      {/* Tap flash overlays */}
-      <div
-        className={`memoir-tap-flash memoir-tap-flash-left ${flashSide === 'left' ? 'memoir-flash-active' : ''}`}
-      />
-      <div
-        className={`memoir-tap-flash memoir-tap-flash-right ${flashSide === 'right' ? 'memoir-flash-active' : ''}`}
-      />
+        {/* Track */}
+        <div
+          ref={trackRef}
+          className="memoir-track"
+          onClick={handleClick}
+          style={{
+            transform: `translateX(${translateX}px)`,
+            transition: transitionStyle,
+            willChange: isDragging ? 'transform' : 'auto',
+          }}
+        >
+          {pages.map((page, i) => {
+            const isActive = i === currentPage;
+            return (
+              <div
+                key={page.key}
+                className={`memoir-page ${page.scrollable ? 'memoir-page-scrollable' : ''} ${isActive ? 'memoir-page-active' : ''}`}
+                style={{ width: pageWidth || '100%' }}
+                aria-hidden={!isActive}
+                inert={!isActive}
+              >
+                {page.content}
+              </div>
+            );
+          })}
+        </div>
 
-      {/* Page counter */}
-      <div className="memoir-counter">
-        {currentPage + 1} / {totalPages}
+        {/* Tap flash overlays */}
+        <div
+          className={`memoir-tap-flash memoir-tap-flash-left ${flashSide === 'left' ? 'memoir-flash-active' : ''}`}
+        />
+        <div
+          className={`memoir-tap-flash memoir-tap-flash-right ${flashSide === 'right' ? 'memoir-flash-active' : ''}`}
+        />
+
+        {/* Page counter */}
+        <div className="memoir-counter">
+          {currentPage + 1} / {totalPages}
+        </div>
       </div>
     </div>
   );
