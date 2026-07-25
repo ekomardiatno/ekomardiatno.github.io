@@ -12,7 +12,7 @@ export default function HeroSection() {
   }, [data]);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-end overflow-hidden star-field">
+    <section className="relative min-h-dvh flex flex-col justify-end overflow-hidden star-field">
       <div
         className="absolute inset-0"
         style={{

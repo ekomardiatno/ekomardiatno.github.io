@@ -12,7 +12,7 @@ export default function HeroSection() {
   }, [data]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900 text-white overlay-white-bg bg-hero-1 bg-cover bg-top-right">
+    <section className="relative min-h-dvh flex items-center justify-center overflow-hidden bg-slate-900 text-white overlay-white-bg bg-hero-1 bg-cover bg-top-right">
       {data && (
         <div className="relative z-10 px-6 text-center max-w-3xl">
           <p className="text-xs tracking-[0.35em] uppercase text-slate-600">
