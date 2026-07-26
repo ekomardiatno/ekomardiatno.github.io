@@ -9,6 +9,7 @@ import EmviteDemoEnchanted from "./pages/EmviteDemoEnchanted";
 import EmviteDemoVelvet from "./pages/EmviteDemoVelvet";
 import EmviteDemoOpulent from "./pages/EmviteDemoOpulent";
 import EmviteDemoMemoir from "./pages/EmviteDemoMemoir";
+import EmviteDemoTheBeginning from "./pages/EmviteDemoTheBeginning";
 import EmvitePrivacyPolicy from "./pages/EmvitePrivacyPolicy";
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
       <Route index path="/" element={<Home />} />
       <Route path="/monflo" element={<Monflo />} />
       <Route path="/eksamart" element={<Eksamart />} />
+      <Route path="/emvite/demo/the-beginning" element={<EmviteDemoTheBeginning />} />
       <Route path="/emvite/demo/evergreen" element={<EmviteDemo />} />
       <Route path="/emvite/demo/celestial" element={<EmviteDemoCelestial />} />
       <Route path="/emvite/demo/enchanted" element={<EmviteDemoEnchanted />} />
