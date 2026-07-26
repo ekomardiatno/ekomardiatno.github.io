@@ -11,6 +11,7 @@ import EmviteDemoOpulent from "./pages/EmviteDemoOpulent";
 import EmviteDemoMemoir from "./pages/EmviteDemoMemoir";
 import EmviteDemoTheBeginning from "./pages/EmviteDemoTheBeginning";
 import EmvitePrivacyPolicy from "./pages/EmvitePrivacyPolicy";
+import EmviteTemplates from "./pages/EmviteTemplates";
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
       <Route path="/emvite/demo/velvet" element={<EmviteDemoVelvet />} />
       <Route path="/emvite/demo/opulent" element={<EmviteDemoOpulent />} />
       <Route path="/emvite/demo/memoir" element={<EmviteDemoMemoir />} />
+      <Route path="/emvite/templates" element={<EmviteTemplates />} />
       <Route path="/emvite/privacy-policy" element={<EmvitePrivacyPolicy />} />
       <Route
         path="/emvite/wedding/preview/:id"

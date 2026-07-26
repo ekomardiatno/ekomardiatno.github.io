@@ -1,9 +1,22 @@
 import type {
   RsvpDataType,
+  TemplateListItemType,
   WeddingInvitationDetailDataType,
   WishDataType,
 } from "../types/emvite.type";
 import { api, type ApiResponse } from "./common";
+
+export async function getTemplates(signal?: AbortSignal) {
+  const result = (await api.get('/public/templates', {
+    signal,
+  })) as ApiResponse<TemplateListItemType[]>;
+
+  return {
+    data: result.data,
+    status: result.status,
+    message: result.message,
+  };
+}
 
 export async function getInvitationDetailByGuest(
   guestId: string,

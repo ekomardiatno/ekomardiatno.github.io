@@ -6,7 +6,17 @@ export type WishDataType = {
 
 export type TemplateDataType = {
   name: string;
-  description: null;
+  description: string | null;
+  previewImagePath: string | null;
+  previewImageMime: string | null;
+  templateCode: string;
+  createdAt: Date;
+};
+
+export type TemplateListItemType = {
+  id: string;
+  name: string;
+  description: string | null;
   previewImagePath: string | null;
   previewImageMime: string | null;
   templateCode: string;
