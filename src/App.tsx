@@ -11,6 +11,7 @@ import EmviteDemoOpulent from "./pages/EmviteDemoOpulent";
 import EmviteDemoMemoir from "./pages/EmviteDemoMemoir";
 import EmviteDemoTheBeginning from "./pages/EmviteDemoTheBeginning";
 import EmvitePrivacyPolicy from "./pages/EmvitePrivacyPolicy";
+import EmsmbsPrivacyPolicy from "./pages/EmsmbsPrivacyPolicy";
 import EmviteTemplates from "./pages/EmviteTemplates";
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
       <Route path="/emvite/demo/memoir" element={<EmviteDemoMemoir />} />
       <Route path="/emvite/templates" element={<EmviteTemplates />} />
       <Route path="/emvite/privacy-policy" element={<EmvitePrivacyPolicy />} />
+      <Route path="/emsmbs/privacy-policy" element={<EmsmbsPrivacyPolicy />} />
       <Route
         path="/emvite/wedding/preview/:id"
         element={<Emvite mode="preview" />}
