@@ -3,6 +3,16 @@ import Home from "./pages/Home";
 import Monflo from "./pages/Monflo";
 import Eksamart from "./pages/Eksamart";
 import Emvite from "./pages/Emvite";
+import EmviteDemo from "./pages/EmviteDemo";
+import EmviteDemoCelestial from "./pages/EmviteDemoCelestial";
+import EmviteDemoEnchanted from "./pages/EmviteDemoEnchanted";
+import EmviteDemoVelvet from "./pages/EmviteDemoVelvet";
+import EmviteDemoOpulent from "./pages/EmviteDemoOpulent";
+import EmviteDemoMemoir from "./pages/EmviteDemoMemoir";
+import EmviteDemoTheBeginning from "./pages/EmviteDemoTheBeginning";
+import EmvitePrivacyPolicy from "./pages/EmvitePrivacyPolicy";
+import EmsmbsPrivacyPolicy from "./pages/EmsmbsPrivacyPolicy";
+import EmviteTemplates from "./pages/EmviteTemplates";
 
 export default function App() {
   return (
@@ -10,7 +20,24 @@ export default function App() {
       <Route index path="/" element={<Home />} />
       <Route path="/monflo" element={<Monflo />} />
       <Route path="/eksamart" element={<Eksamart />} />
-      <Route path="/emvite/:weddingId" element={<Emvite />} />
+      <Route path="/emvite/demo/the-beginning" element={<EmviteDemoTheBeginning />} />
+      <Route path="/emvite/demo/evergreen" element={<EmviteDemo />} />
+      <Route path="/emvite/demo/celestial" element={<EmviteDemoCelestial />} />
+      <Route path="/emvite/demo/enchanted" element={<EmviteDemoEnchanted />} />
+      <Route path="/emvite/demo/velvet" element={<EmviteDemoVelvet />} />
+      <Route path="/emvite/demo/opulent" element={<EmviteDemoOpulent />} />
+      <Route path="/emvite/demo/memoir" element={<EmviteDemoMemoir />} />
+      <Route path="/emvite/templates" element={<EmviteTemplates />} />
+      <Route path="/emvite/privacy-policy" element={<EmvitePrivacyPolicy />} />
+      <Route path="/emsmbs/privacy-policy" element={<EmsmbsPrivacyPolicy />} />
+      <Route
+        path="/emvite/wedding/preview/:id"
+        element={<Emvite mode="preview" />}
+      />
+      <Route
+        path="/emvite/wedding/guest/:id"
+        element={<Emvite mode="guest" />}
+      />
     </Routes>
   );
 }

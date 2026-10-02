@@ -36,6 +36,7 @@ jobs:
         run: npm run build
         env:
           GITHUB_BRANCH: ${{ github.ref_name }}
+          VITE_EMVITE_API_URL: ${{ vars.VITE_EMVITE_API_URL }}
 
       - name: Upload GitHub Pages artifact
         if: github.ref_name == 'main'
