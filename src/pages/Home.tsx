@@ -117,7 +117,7 @@ export default function Home() {
 
               <div className="absolute bottom-0 left-0 right-0 py-4 px-6">
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.koma.copek"
+                  href="https://ekomardiatno.my.id/copek/"
                   target="_blank"
                   className="text-sm font-medium text-red-400 hover:text-red-300"
                 >
@@ -168,6 +168,111 @@ export default function Home() {
               <div className="absolute bottom-0 left-0 right-0 py-4 px-6">
                 <a
                   href="https://play.google.com/store/apps/details?id=com.koma.emart"
+                  target="_blank"
+                  className="text-sm font-medium text-red-400 hover:text-red-300"
+                >
+                  View Project →
+                </a>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-slate-800 bg-slate-950 p-6 hover:border-slate-700 transition relative pb-14">
+              <h4 className="text-xl font-semibold mb-2">EMbiz</h4>
+              <p className="text-slate-400 text-sm mb-4">
+                Multi-tenant SaaS point-of-sale and inventory system with
+                offline-capable POS terminals and subscription billing.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-5">
+                <span className="text-xs px-2 py-1 rounded bg-slate-800">
+                  TypeScript
+                </span>
+                <span className="text-xs px-2 py-1 rounded bg-slate-800">
+                  React
+                </span>
+                <span className="text-xs px-2 py-1 rounded bg-slate-800">
+                  Node.js
+                </span>
+                <span className="text-xs px-2 py-1 rounded bg-slate-800">
+                  PostgreSQL
+                </span>
+                <span className="text-xs px-2 py-1 rounded bg-slate-800">
+                  Prisma
+                </span>
+                <span className="text-xs px-2 py-1 rounded bg-slate-800">
+                  Socket.io
+                </span>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 py-4 px-6">
+                <a
+                  href="https://embiz.ekomardiatno.my.id"
+                  target="_blank"
+                  className="text-sm font-medium text-red-400 hover:text-red-300"
+                >
+                  View Project →
+                </a>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-slate-800 bg-slate-950 p-6 hover:border-slate-700 transition relative pb-14">
+              <h4 className="text-xl font-semibold mb-2">PingWin</h4>
+              <p className="text-slate-400 text-sm mb-4">
+                SMS and WhatsApp gateway that turns an Android phone into your
+                own messaging API.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-5">
+                <span className="text-xs px-2 py-1 rounded bg-slate-800">
+                  TypeScript
+                </span>
+                <span className="text-xs px-2 py-1 rounded bg-slate-800">
+                  Node.js
+                </span>
+                <span className="text-xs px-2 py-1 rounded bg-slate-800">
+                  Fastify
+                </span>
+                <span className="text-xs px-2 py-1 rounded bg-slate-800">
+                  PostgreSQL
+                </span>
+                <span className="text-xs px-2 py-1 rounded bg-slate-800">
+                  Baileys
+                </span>
+                <span className="text-xs px-2 py-1 rounded bg-slate-800">
+                  Android
+                </span>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 py-4 px-6">
+                <a
+                  href="https://ekomardiatno.my.id/pingwin"
+                  target="_blank"
+                  className="text-sm font-medium text-red-400 hover:text-red-300"
+                >
+                  View Project →
+                </a>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-slate-800 bg-slate-950 p-6 hover:border-slate-700 transition relative pb-14">
+              <h4 className="text-xl font-semibold mb-2">EMSMBS</h4>
+              <p className="text-slate-400 text-sm mb-4">
+                Android app that turns a phone into an SMB file server by
+                running bundled Samba binaries without root.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-5">
+                <span className="text-xs px-2 py-1 rounded bg-slate-800">
+                  TypeScript
+                </span>
+                <span className="text-xs px-2 py-1 rounded bg-slate-800">
+                  React Native
+                </span>
+                <span className="text-xs px-2 py-1 rounded bg-slate-800">
+                  Kotlin
+                </span>
+                <span className="text-xs px-2 py-1 rounded bg-slate-800">
+                  Samba
+                </span>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 py-4 px-6">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.emsmbs"
                   target="_blank"
                   className="text-sm font-medium text-red-400 hover:text-red-300"
                 >
