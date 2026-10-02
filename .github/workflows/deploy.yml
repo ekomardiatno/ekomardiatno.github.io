@@ -37,6 +37,10 @@ jobs:
         env:
           GITHUB_BRANCH: ${{ github.ref_name }}
           VITE_EMVITE_API_URL: ${{ vars.VITE_EMVITE_API_URL }}
+          # The same build is served from ekomardiatno.github.io (Pages) and
+          # ekomardiatno.my.id (VPS). Canonical tags always point at my.id; the
+          # Pages copy is additionally marked noindex to avoid duplicates.
+          VITE_SITE_NOINDEX: ${{ github.ref_name == 'main' }}
 
       - name: Upload GitHub Pages artifact
         if: github.ref_name == 'main'

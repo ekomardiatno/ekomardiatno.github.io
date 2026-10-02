@@ -13,31 +13,40 @@ import EmviteDemoTheBeginning from "./pages/EmviteDemoTheBeginning";
 import EmvitePrivacyPolicy from "./pages/EmvitePrivacyPolicy";
 import EmsmbsPrivacyPolicy from "./pages/EmsmbsPrivacyPolicy";
 import EmviteTemplates from "./pages/EmviteTemplates";
+import NotFound from "./pages/NotFound";
+import Seo from "./seo/Seo";
 
 export default function App() {
   return (
-    <Routes>
-      <Route index path="/" element={<Home />} />
-      <Route path="/monflo" element={<Monflo />} />
-      <Route path="/eksamart" element={<Eksamart />} />
-      <Route path="/emvite/demo/the-beginning" element={<EmviteDemoTheBeginning />} />
-      <Route path="/emvite/demo/evergreen" element={<EmviteDemo />} />
-      <Route path="/emvite/demo/celestial" element={<EmviteDemoCelestial />} />
-      <Route path="/emvite/demo/enchanted" element={<EmviteDemoEnchanted />} />
-      <Route path="/emvite/demo/velvet" element={<EmviteDemoVelvet />} />
-      <Route path="/emvite/demo/opulent" element={<EmviteDemoOpulent />} />
-      <Route path="/emvite/demo/memoir" element={<EmviteDemoMemoir />} />
-      <Route path="/emvite/templates" element={<EmviteTemplates />} />
-      <Route path="/emvite/privacy-policy" element={<EmvitePrivacyPolicy />} />
-      <Route path="/emsmbs/privacy-policy" element={<EmsmbsPrivacyPolicy />} />
-      <Route
-        path="/emvite/wedding/preview/:id"
-        element={<Emvite mode="preview" />}
-      />
-      <Route
-        path="/emvite/wedding/guest/:id"
-        element={<Emvite mode="guest" />}
-      />
-    </Routes>
+    <>
+      <Seo />
+      <Routes>
+        <Route index path="/" element={<Home />} />
+        <Route path="/monflo" element={<Monflo />} />
+        <Route path="/eksamart" element={<Eksamart />} />
+        <Route
+          path="/emvite/demo/the-beginning"
+          element={<EmviteDemoTheBeginning />}
+        />
+        <Route path="/emvite/demo/evergreen" element={<EmviteDemo />} />
+        <Route path="/emvite/demo/celestial" element={<EmviteDemoCelestial />} />
+        <Route path="/emvite/demo/enchanted" element={<EmviteDemoEnchanted />} />
+        <Route path="/emvite/demo/velvet" element={<EmviteDemoVelvet />} />
+        <Route path="/emvite/demo/opulent" element={<EmviteDemoOpulent />} />
+        <Route path="/emvite/demo/memoir" element={<EmviteDemoMemoir />} />
+        <Route path="/emvite/templates" element={<EmviteTemplates />} />
+        <Route path="/emvite/privacy-policy" element={<EmvitePrivacyPolicy />} />
+        <Route path="/emsmbs/privacy-policy" element={<EmsmbsPrivacyPolicy />} />
+        <Route
+          path="/emvite/wedding/preview/:id"
+          element={<Emvite mode="preview" />}
+        />
+        <Route
+          path="/emvite/wedding/guest/:id"
+          element={<Emvite mode="guest" />}
+        />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   );
 }

@@ -6,7 +6,56 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#fb2c36" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+      Back-compat shim for the old HashRouter URLs (`/#/path`).
+      Already-distributed wedding invitations will keep arriving as hash URLs
+      indefinitely, so this is permanent. It must be inline and non-deferred:
+      the module script and registerSW.js would otherwise run against the
+      wrong URL. Same-document replaceState, so no network round trip and no
+      redirect loop (after the rewrite the hash no longer starts with "#/").
+    -->
+    <script>
+      (function () {
+        var hash = window.location.hash;
+        // Leave same-page anchors like #projects / #contact alone.
+        if (hash.indexOf("#/") !== 0) return;
+
+        var rest = hash.slice(1);
+
+        var fragment = "";
+        var fragmentAt = rest.indexOf("#");
+        if (fragmentAt !== -1) {
+          fragment = rest.slice(fragmentAt);
+          rest = rest.slice(0, fragmentAt);
+        }
+
+        var hashQuery = "";
+        var queryAt = rest.indexOf("?");
+        if (queryAt !== -1) {
+          hashQuery = rest.slice(queryAt + 1);
+          rest = rest.slice(0, queryAt);
+        }
+
+        // Collapse leading slashes so "#//evil.com" can't become a
+        // protocol-relative URL.
+        var path = "/" + rest.replace(/^\/+/, "");
+
+        var preHashQuery = window.location.search.slice(1);
+        var query =
+          preHashQuery && hashQuery
+            ? preHashQuery + "&" + hashQuery
+            : preHashQuery || hashQuery;
+
+        window.history.replaceState(
+          null,
+          "",
+          path + (query ? "?" + query : "") + fragment,
+        );
+      })();
+    </script>
     <title>EMDEV</title>
+    <meta name="description" content="EMDEV" />
+    <link rel="canonical" href="https://ekomardiatno.my.id/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

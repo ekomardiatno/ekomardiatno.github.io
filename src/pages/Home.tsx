@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 export default function Home() {
   function onGoToSection(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
@@ -316,6 +317,30 @@ export default function Home() {
               GitHub
             </a>
           </div>
+
+          <nav className="mt-14 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-slate-400">
+            <Link to="/emvite/templates" className="hover:text-slate-200 transition">
+              EMVITE Templates
+            </Link>
+            <Link to="/monflo" className="hover:text-slate-200 transition">
+              Monflo
+            </Link>
+            <Link to="/eksamart" className="hover:text-slate-200 transition">
+              Eksamart
+            </Link>
+            <Link
+              to="/emvite/privacy-policy"
+              className="hover:text-slate-200 transition"
+            >
+              EMVITE Privacy Policy
+            </Link>
+            <Link
+              to="/emsmbs/privacy-policy"
+              className="hover:text-slate-200 transition"
+            >
+              EMSMBS Privacy Policy
+            </Link>
+          </nav>
 
           <p className="mt-10 text-sm text-slate-500">
             © 2026 Eko. Built with care.
