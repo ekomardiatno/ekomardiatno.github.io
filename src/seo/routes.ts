@@ -13,6 +13,9 @@ export const CANONICAL_ORIGIN = "https://ekomardiatno.my.id";
 
 export const DEFAULT_OG_IMAGE = "/og-image.png";
 
+/** Share card for the EMVITE (wedding invitation) side of the site. */
+export const EMVITE_OG_IMAGE = "/og-emvite.png";
+
 export type SeoLang = "en" | "id";
 
 export type SeoRoute = {
@@ -83,6 +86,7 @@ export const SEO_ROUTES: SeoRoute[] = [
     title: `Template Undangan Pernikahan Digital — EMVITE | ${SITE_NAME}`,
     description:
       "Jelajahi koleksi template undangan pernikahan digital EMVITE. Lihat demo setiap desain sebelum memilih.",
+    image: EMVITE_OG_IMAGE,
     priority: 0.9,
   },
   {
@@ -91,6 +95,7 @@ export const SEO_ROUTES: SeoRoute[] = [
     title: `Demo Template The Beginning — Undangan Digital EMVITE | ${SITE_NAME}`,
     description:
       "Demo template undangan pernikahan digital The Beginning: desain bersih bernuansa terang dengan navigasi gulir vertikal.",
+    image: EMVITE_OG_IMAGE,
     priority: 0.6,
   },
   {
@@ -99,6 +104,7 @@ export const SEO_ROUTES: SeoRoute[] = [
     title: `Demo Template Evergreen — Undangan Digital EMVITE | ${SITE_NAME}`,
     description:
       "Demo template undangan pernikahan digital Evergreen: palet batu dan hijau zamrud yang natural dan hangat.",
+    image: EMVITE_OG_IMAGE,
     priority: 0.6,
   },
   {
@@ -107,6 +113,7 @@ export const SEO_ROUTES: SeoRoute[] = [
     title: `Demo Template Celestial — Undangan Digital EMVITE | ${SITE_NAME}`,
     description:
       "Demo template undangan pernikahan digital Celestial: latar langit malam biru tua bertabur bintang dengan aksen emas.",
+    image: EMVITE_OG_IMAGE,
     priority: 0.6,
   },
   {
@@ -115,6 +122,7 @@ export const SEO_ROUTES: SeoRoute[] = [
     title: `Demo Template Enchanted — Undangan Digital EMVITE | ${SITE_NAME}`,
     description:
       "Demo template undangan pernikahan digital Enchanted: nuansa putih hangat dan rose dengan kelopak bunga berguguran.",
+    image: EMVITE_OG_IMAGE,
     priority: 0.6,
   },
   {
@@ -123,6 +131,7 @@ export const SEO_ROUTES: SeoRoute[] = [
     title: `Demo Template Velvet — Undangan Digital EMVITE | ${SITE_NAME}`,
     description:
       "Demo template undangan pernikahan digital Velvet: ungu kebiruan gelap dengan efek teks mesin tik dan navigasi samping.",
+    image: EMVITE_OG_IMAGE,
     priority: 0.6,
   },
   {
@@ -131,6 +140,7 @@ export const SEO_ROUTES: SeoRoute[] = [
     title: `Demo Template Opulent — Undangan Digital EMVITE | ${SITE_NAME}`,
     description:
       "Demo template undangan pernikahan digital Opulent: krem dan emas mewah dengan partikel yang melayang lembut.",
+    image: EMVITE_OG_IMAGE,
     priority: 0.6,
   },
   {
@@ -139,6 +149,7 @@ export const SEO_ROUTES: SeoRoute[] = [
     title: `Demo Template Memoir — Undangan Digital EMVITE | ${SITE_NAME}`,
     description:
       "Demo template undangan pernikahan digital Memoir: format cerita sinematik yang dibuka dengan geser atau ketuk.",
+    image: EMVITE_OG_IMAGE,
     priority: 0.6,
   },
   {
@@ -147,6 +158,7 @@ export const SEO_ROUTES: SeoRoute[] = [
     title: `Privacy Policy — EMVITE | ${SITE_NAME}`,
     description:
       "How EMVITE collects, uses and protects the data you provide when creating or opening a digital wedding invitation.",
+    image: EMVITE_OG_IMAGE,
     priority: 0.3,
   },
   {
@@ -171,6 +183,7 @@ export const DYNAMIC_SEO_ROUTES: SeoRoute[] = [
     lang: "id",
     title: "Undangan Pernikahan — EMVITE",
     description: "Pratinjau undangan pernikahan digital EMVITE.",
+    image: EMVITE_OG_IMAGE,
     noindex: true,
   },
   {
@@ -178,6 +191,7 @@ export const DYNAMIC_SEO_ROUTES: SeoRoute[] = [
     lang: "id",
     title: "Undangan Pernikahan — EMVITE",
     description: "Undangan pernikahan digital EMVITE.",
+    image: EMVITE_OG_IMAGE,
     noindex: true,
   },
 ];
