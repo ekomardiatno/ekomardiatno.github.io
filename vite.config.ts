@@ -33,6 +33,9 @@ export default defineConfig({
           /^\/yt-extractor/,
           /^\/whatsapp-api/,
           /^\/emvite-node/,
+          // Server-rendered Open Graph documents + share cards, proxied to
+          // emvite-node. Never an SPA navigation.
+          /^\/emvite\/og\//,
           /^\/copek-node/,
           /^\/midtrans/,
         ],

@@ -241,6 +241,32 @@ Disallow: /copek-node/
 Disallow: /whatsapp-api/
 Disallow: /serenchat/
 
+# Link unfurlers must be able to read the server-rendered Open Graph document
+# for private invitations and fetch its share card. Both responses carry
+# \`X-Robots-Tag: noindex, nofollow\`, so allowing the fetch does not index them.
+# facebookexternalhit honours robots.txt for the og:image request too — if this
+# group is removed, Facebook previews silently lose their thumbnail.
+#
+# A User-agent-specific group REPLACES the \`*\` group for that agent, so this
+# does not rely on longest-match Allow/Disallow precedence. \`/emvite/og/\` is
+# under no Disallow anywhere — do not add one that would catch it.
+#
+# Googlebot and bingbot are deliberately absent: serving them different HTML
+# than a browser is cloaking, and /emvite/wedding/ is Disallowed for them above.
+User-agent: facebookexternalhit
+User-agent: facebookcatalog
+User-agent: meta-externalagent
+User-agent: WhatsApp
+User-agent: Twitterbot
+User-agent: TelegramBot
+User-agent: Slackbot
+User-agent: Slackbot-LinkExpanding
+User-agent: Discordbot
+User-agent: LinkedInBot
+Allow: /
+Disallow: /phpmyadmin
+Disallow: /emvite-node/
+
 Sitemap: ${CANONICAL_ORIGIN}/sitemap.xml
 Sitemap: ${CANONICAL_ORIGIN}/pingwin/sitemap.xml
 `;
