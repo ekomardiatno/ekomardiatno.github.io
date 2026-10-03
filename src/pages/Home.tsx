@@ -153,31 +153,6 @@ export default function Home() {
             </div>
 
             <div className="rounded-xl border border-slate-800 bg-slate-950 p-6 hover:border-slate-700 transition relative pb-14">
-              <h4 className="text-xl font-semibold mb-2">Eksamart</h4>
-              <p className="text-slate-400 text-sm mb-4">
-                Simple e-commerce app for record transactions and product
-                management.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-5">
-                <span className="text-xs px-2 py-1 rounded bg-slate-800">
-                  Typescript
-                </span>
-                <span className="text-xs px-2 py-1 rounded bg-slate-800">
-                  React Native
-                </span>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 py-4 px-6">
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.koma.emart"
-                  target="_blank"
-                  className="text-sm font-medium text-red-400 hover:text-red-300"
-                >
-                  View Project →
-                </a>
-              </div>
-            </div>
-
-            <div className="rounded-xl border border-slate-800 bg-slate-950 p-6 hover:border-slate-700 transition relative pb-14">
               <h4 className="text-xl font-semibold mb-2">EMbiz</h4>
               <p className="text-slate-400 text-sm mb-4">
                 Multi-tenant SaaS point-of-sale and inventory system with
